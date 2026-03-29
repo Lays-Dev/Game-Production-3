@@ -1,21 +1,37 @@
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public AudioSource hitSFX;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float hitAmount;
+    public float hitTotal;
+    public Lane noteAmount;
+    public TextMeshProUGUI HitAmounts;
+    public TextMeshProUGUI ComboCounter;
+    public float comboAmount;
+
     void Start()
     {
         instance = this;
+        
     }
+    // This is the function that is called when the player hits a note. It plays a sound effect, increases the hit amount and combo amount by 1, and updates the UI.
     public static void hit()
     {
         instance.hitSFX.Play();
+        instance.hitAmount += 1;
+        instance.comboAmount += 1;
     }
-    // Update is called once per frame
+    public static void miss()
+    {
+        instance.comboAmount = 0;
+    }
+    // This is the function that updates the UI every frame. It updates the combo counter and the hit amounts.
     void Update()
     {
-        
+         ComboCounter.text = instance.comboAmount + "x";
+        HitAmounts.text = instance.hitAmount + "/" + instance.noteAmount.timeStamps.Count;
     }
 }

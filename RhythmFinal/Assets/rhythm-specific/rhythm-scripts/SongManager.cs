@@ -21,7 +21,7 @@ public class SongManager : MonoBehaviour
     public float noteDespawnX
     { 
         get
-            { return noteTapX - (noteSpawnX - noteTapX); }
+            { return noteTapX - (noteSpawnX - noteTapX) + 3f; }
     }   
     //reference to the midifile
    public static MidiFile midiFile;
