@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     public float Speed = 5f;
     public Vector2 movementInput;
+    public GameObject RhythmGameTest;
+    public GameObject player;
     private Rigidbody rb;
 
     public Transform cameraTransform; // Camera
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Making sure this works.");
     }
+
 
 
     
@@ -45,6 +48,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.pKey.isPressed)
+        {
+            RhythmGameTest.SetActive(true);
+            player.SetActive(false);
 
+        }
     }
 }
