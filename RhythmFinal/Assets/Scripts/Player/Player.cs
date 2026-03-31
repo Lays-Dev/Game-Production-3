@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,17 +6,21 @@ public class Player : MonoBehaviour
 {
     public float Speed = 5f;
     public Vector2 movementInput;
-    public GameObject RhythmGameTest;
     public GameObject player;
     private Rigidbody rb;
+    public bool inRhythmGame = false;
+    public bool controlLock = false;
+    public GameObject RhythmPrefab;
 
     public Transform cameraTransform; // Camera
-    
+        
 
     private void OnMove(InputValue inputValue) // function to make the guy move
     {
-        movementInput = inputValue.Get<Vector2>();
-
+        if (controlLock == false)
+        {
+            movementInput = inputValue.Get<Vector2>();
+        }
         Debug.Log("Making sure this works.");
     }
 
@@ -38,11 +43,12 @@ public class Player : MonoBehaviour
         forward.y = 0f;
         right.y = 0f;
 
+        
+            // Build movement direction relative to camera
+            Vector3 movement = forward * movementInput.y + right * movementInput.x;
 
-        // Build movement direction relative to camera
-        Vector3 movement = forward * movementInput.y + right * movementInput.x;
-
-        rb.MovePosition(rb.position + movement * Speed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * Speed * Time.fixedDeltaTime);
+        
     }
     
     // Update is called once per frame
@@ -50,8 +56,12 @@ public class Player : MonoBehaviour
     {
         if (Keyboard.current.pKey.isPressed)
         {
-            RhythmGameTest.SetActive(true);
-            player.SetActive(false);
+            if (inRhythmGame == false)
+            {
+                inRhythmGame= true;
+                Instantiate(RhythmPrefab);
+                controlLock = true;
+            }
 
         }
     }
