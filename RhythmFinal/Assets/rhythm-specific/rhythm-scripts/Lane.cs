@@ -69,15 +69,33 @@ public class Lane : MonoBehaviour
         {
             double timeStamp = timeStamps[inputIndex];
             double marginOfError = SongManager.instance.marginOfError;
+            double marginOfError1 = SongManager.instance.marginOfError1;
+            double marginOfError2 = SongManager.instance.marginOfError2;
+
             double audioTime = SongManager.GetAudioSourceTime() - (SongManager.instance.inputDelayInMilliseconds / 1000.0);
 
+            // HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
             if (Keyboard.current.jKey.wasPressedThisFrame)
             {
                 if (Math.Abs(audioTime - timeStamp) < marginOfError) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
                 {
                     Hit();
-                    Debug.Log("hit");
+                    Debug.Log("Perfect");
                     // I will be changing this to not destroy it but instead make it invisible, freeze it in place, and then use particle effects to make things feel more impactful. later.
+                    Destroy(notes[inputIndex].gameObject);
+                    inputIndex++;
+                }
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError1) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                {
+                    Hit();
+                    Debug.Log("Great");
+                    Destroy(notes[inputIndex].gameObject);
+                    inputIndex++;
+                }
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError2) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                {
+                    Hit();
+                    Debug.Log("Good");
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }

@@ -795,6 +795,30 @@ PrefabInstance:
       value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: fileLocation
+      value: MidiClip_test.mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: marginOfError
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: marginOfError1
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: marginOfError2
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: lanes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
+      propertyPath: 'lanes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555179665846198514, guid: edefac8f742199742ae9014743fc3711, type: 3}
       propertyPath: inputDelayInMilliseconds
       value: 0
       objectReference: {fileID: 0}
@@ -844,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8806491916234224924, guid: edefac8f742199742ae9014743fc3711, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8815692517243130776, guid: edefac8f742199742ae9014743fc3711, type: 3}
       propertyPath: player
