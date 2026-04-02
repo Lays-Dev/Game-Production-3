@@ -15,8 +15,11 @@ public class Lane : MonoBehaviour
     public InputAction RhythmButton;
     public GameObject notePrefab;
     List<Note> notes = new List<Note>();
+    public Player playerObject;
     public List<double> timeStamps = new List<double>();
-    public GameObject player;
+    
+    
+    
     public GameObject RhythmGame;
     public float noteAmount;
     public TextMeshProUGUI endText;
@@ -45,7 +48,16 @@ public class Lane : MonoBehaviour
     {
         RhythmButton = InputSystem.actions.FindAction("RhythmButton");
         noteAmount = timeStamps.Count;
+        
+        
 
+
+    }
+    public void Awake()
+    {
+        playerObject = GameObject.FindFirstObjectByType < Player > ();
+            Debug.Log("Found!");
+        playerObject.GetComponent<Player>();
     }
     // This is the main function that spawns the notes and also checks for input. It checks if the note should be spawned and then spawns it. It also checks if the player has hit the note and if they have, it destroys the note instantly.
     void Update()
@@ -69,15 +81,33 @@ public class Lane : MonoBehaviour
         {
             double timeStamp = timeStamps[inputIndex];
             double marginOfError = SongManager.instance.marginOfError;
+            double marginOfError1 = SongManager.instance.marginOfError1;
+            double marginOfError2 = SongManager.instance.marginOfError2;
+
             double audioTime = SongManager.GetAudioSourceTime() - (SongManager.instance.inputDelayInMilliseconds / 1000.0);
 
+            // HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
             if (Keyboard.current.jKey.wasPressedThisFrame)
             {
                 if (Math.Abs(audioTime - timeStamp) < marginOfError) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
                 {
                     Hit();
-                    Debug.Log("hit");
+                    Debug.Log("Perfect");
                     // I will be changing this to not destroy it but instead make it invisible, freeze it in place, and then use particle effects to make things feel more impactful. later.
+                    Destroy(notes[inputIndex].gameObject);
+                    inputIndex++;
+                }
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError1) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                {
+                    Hit();
+                    Debug.Log("Great");
+                    Destroy(notes[inputIndex].gameObject);
+                    inputIndex++;
+                }
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError2) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                {
+                    Hit();
+                    Debug.Log("Good");
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
@@ -112,8 +142,11 @@ public class Lane : MonoBehaviour
             endText.text = "You lose!";
         }
         yield return new WaitForSeconds(2f);
-        player.gameObject.SetActive(true);
-        RhythmGame.SetActive(false);
+        playerObject.gameObject.SetActive(true);
+        playerObject.inRhythmGame = false;
+        playerObject.controlLock = false;
+        
+        Destroy(RhythmGame);
 
     }
     private void Hit()
