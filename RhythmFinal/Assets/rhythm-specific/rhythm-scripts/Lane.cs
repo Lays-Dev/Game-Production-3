@@ -87,7 +87,7 @@ public class Lane : MonoBehaviour
             double audioTime = SongManager.GetAudioSourceTime() - (SongManager.instance.inputDelayInMilliseconds / 1000.0);
 
             // HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
-            if (Keyboard.current.jKey.wasPressedThisFrame)
+            if (Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.kKey.wasPressedThisFrame)
             {
                 if (Math.Abs(audioTime - timeStamp) < marginOfError) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
                 {
@@ -97,14 +97,14 @@ public class Lane : MonoBehaviour
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
-                else if (Math.Abs(audioTime - timeStamp) < marginOfError1) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError1) 
                 {
                     Hit();
                     Debug.Log("Great");
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
-                else if (Math.Abs(audioTime - timeStamp) < marginOfError2) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError2) 
                 {
                     Hit();
                     Debug.Log("Good");
