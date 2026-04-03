@@ -128,7 +128,7 @@
                     "id": "9bcfe4fc-256d-46fb-8530-04aae9c453cc",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=10.29,y=10)",
                     "groups": "",
                     "action": "Camera",
                     "isComposite": false,
@@ -146,6 +146,22 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "41227321-0dcb-497e-93ae-1607221d4914",
+            "actions": [
+                {
+                    "name": "Navigate",
+                    "type": "Button",
+                    "id": "31787360-b9a2-4168-9289-f1fd310b8751",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": []
         }
     ],
     "controlSchemes": []
