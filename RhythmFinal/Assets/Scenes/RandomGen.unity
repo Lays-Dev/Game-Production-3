@@ -1080,7 +1080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc6adc05ba80d0448c389016443b3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSong: {fileID: 7241101216212137155, guid: 35602c0631951f846a25d254811a2d6c, type: 3}
+  spawnSongs:
+  - {fileID: 7241101216212137155, guid: 35602c0631951f846a25d254811a2d6c, type: 3}
+  - {fileID: 7241101216212137155, guid: b594d794de2197e4b84a4e8dabf3944a, type: 3}
+  - {fileID: 7241101216212137155, guid: 7cd9804b68ec0ee4b9d5a1eecb56a1ae, type: 3}
   spawnPoints: []
   spawnCount: 0
   spawnAmount: 4

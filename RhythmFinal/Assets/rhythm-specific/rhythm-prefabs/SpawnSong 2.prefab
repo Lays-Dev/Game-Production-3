@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4934081380625600564}
   - component: {fileID: 6632447720563930269}
   m_Layer: 0
-  m_Name: SpawnSong
+  m_Name: SpawnSong 2
   m_TagString: Song
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c697e7a2ab1c5840a66cd3f46635d4d, type: 2}
+  - {fileID: 2100000, guid: d0be42edf8925684a802ab2c470e49fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38550b10409ef4a408a4f8c1164bb4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicGamePrefab: {fileID: 2315560541134342817, guid: cddf9f5a65079364580068c58eeda30c, type: 3}
+  MusicGamePrefab: {fileID: 2315560541134342817, guid: df5bc640c94e75f42aaf0916ef3c701c, type: 3}

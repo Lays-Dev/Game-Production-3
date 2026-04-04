@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class RandomGen : MonoBehaviour
 {
-    public GameObject spawnSong;
+    
+    public GameObject[] spawnSongs;
     public GameObject[] spawnPoints;
     public float spawnCount = 0f;
     public float spawnAmount = 4f;
@@ -28,12 +29,14 @@ public class RandomGen : MonoBehaviour
             //This picks a random index from the spawnpoints array, checks if it has already been picked, if not it spawns the song and adds it to the spawned list, if it has already been picked it logs that and tries again.
             int randomIndex = Random.Range(0, spawnPoints.Length);
             GameObject selectedItem = spawnPoints[randomIndex];
+            int pickSong = Random.Range(0, spawnSongs.Length);
+            GameObject pickedSong = spawnSongs[pickSong];
             if (spawned.Contains(selectedItem) == false)
             {
                 Debug.Log("Picked: " + selectedItem.name);
                 spawned.Add(selectedItem);
                 spawnCount++;
-                Instantiate(spawnSong, selectedItem.transform.position, Quaternion.identity);
+                Instantiate(pickedSong, selectedItem.transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(.2f);
             }
             else 
