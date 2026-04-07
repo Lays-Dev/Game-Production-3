@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a92eeb65f95362a42a5291fd59376aa7
+guid: 79dcd99aa8a7d1c499f3eaca1b9af237
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: METAL
-    second: {fileID: 2100000, guid: 8c43db380147f1e4fa18c8c2db5e287e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WOOD
-    second: {fileID: 2100000, guid: a838519e3ac8b884d940c785778711d3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: standardSurface1
-    second: {fileID: 2100000, guid: a9db9be81ed6365409e9793185039540, type: 2}
+    second: {fileID: 2100000, guid: 99130248f8e4f0d4d95fe57379cc9342, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
