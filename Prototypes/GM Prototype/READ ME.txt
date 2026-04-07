@@ -1,0 +1,10 @@
+Open the "GM Prototype" folder
+Open the "RhythmFinal" file.
+Move with WASD.
+Click R to randomize the objects in scene.
+Walk up to an object to trigger the rhythm game.
+Click J when a note lands on the white bar to hit the notes.
+Hit all the notes to win.
+
+
+
