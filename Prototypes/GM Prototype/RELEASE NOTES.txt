@@ -1,0 +1,8 @@
+RELEASE NOTES
+
+Known Issues:
+- No escape key
+- No Arrow key compatibility
+- No mouse compatibility
+- Rhythm Game UI not implemented
+- Rhythm Game can be spammed

@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49011c9bccd9c7644a16fb8d2b41f0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 5
   movementInput: {x: 0, y: 0}
   player: {fileID: 1800864366}
   inRhythmGame: 0
