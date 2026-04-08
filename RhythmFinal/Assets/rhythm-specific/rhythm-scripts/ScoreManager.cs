@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -11,10 +12,25 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI HitAmounts;
     public TextMeshProUGUI ComboCounter;
     public float comboAmount;
+    public GameObject QuestUI;
 
     void Start()
     {
         instance = this;
+        StartCoroutine(FindUI());
+
+
+
+    }
+    public IEnumerator FindUI()
+    {
+        
+        yield return new WaitForSeconds(.1f);
+        QuestUI = GameObject.FindWithTag("UI");
+        QuestUI.GetComponent<Canvas>().enabled = false;
+    }
+    public void Awake()
+    {
         
     }
     // This is the function that is called when the player hits a note. It plays a sound effect, increases the hit amount and combo amount by 1, and updates the UI.
