@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - UI
   - HealthTracker
+  - Evil
   layers:
   - Default
   - TransparentFX

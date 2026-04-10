@@ -14,6 +14,8 @@ public class SongManager : MonoBehaviour
     public double marginOfError1; //Great
     public double marginOfError2; //Good
     public Lane[] lanes;
+    public LaneMulti[] lanesMulti;
+    public bool forBossFight;
 
     public string fileLocation;
     public float noteTime;
@@ -49,9 +51,16 @@ public class SongManager : MonoBehaviour
         //This starts the audio after certain amount of time
         Invoke(nameof(startSong), songDelayInSeconds);
 
-        foreach (var lane in lanes) lane.setTimeStamps(array);
+        if (forBossFight == false)
+        {
+            foreach (var lane in lanes) lane.setTimeStamps(array);
+        }
 
-        
+        else
+        {
+            foreach (var laneMulti in lanesMulti) laneMulti.setTimeStamps(array);
+        }
+
 
     }
     public void startSong()

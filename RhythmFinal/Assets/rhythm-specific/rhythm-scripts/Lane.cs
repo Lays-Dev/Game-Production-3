@@ -54,7 +54,6 @@ public class Lane : MonoBehaviour
 
     public void Start()
     {
-        RhythmButton = InputSystem.actions.FindAction("RhythmButton");
         noteAmount = timeStamps.Count;
     }
     public void Awake()
