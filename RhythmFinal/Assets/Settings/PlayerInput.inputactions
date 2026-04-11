@@ -41,6 +41,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HitNote / Forward",
+                    "type": "Button",
+                    "id": "0f988c7a-91ed-4dd5-993f-8e57fd842758",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "e2675321-6257-4ae1-bdd5-fb3e92481a23",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -186,6 +204,61 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ccee3fb7-0d31-40cd-9c6f-f5e6d168fdcc",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02046cd7-d8e0-4a33-ae2c-68080896d5c1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af7a057c-03ac-4323-880d-377d46ae35ad",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HitNote / Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26b309f7-7db1-4cb0-9f21-0d92cec5f673",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HitNote / Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "761d1573-2027-460b-b4da-e19928accf92",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HitNote / Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
@@ -389,8 +462,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2001d0b4-a378-46b8-8896-6e4dcd95cb7f",
-                    "path": "<Mouse>/leftButton",
+                    "id": "16361256-a8e7-4754-8677-36c342fa5050",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -411,8 +484,8 @@
                 },
                 {
                     "name": "",
-                    "id": "22d02458-cfd7-46f5-a1f5-b1470dca7342",
-                    "path": "<Mouse>/rightButton",
+                    "id": "cc3d4dec-6358-4d1b-a666-a9064ded6a10",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -461,8 +534,8 @@
                 },
                 {
                     "name": "",
-                    "id": "6e9de96c-5a0b-41c9-b39d-e57afeaaa3a3",
-                    "path": "<Mouse>/leftButton",
+                    "id": "f1fe0b18-ad3c-4c94-a341-5a00712268d5",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
