@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using System;
 using TMPro;
+using System.Collections;
 
 public class Lane : MonoBehaviour
 
@@ -17,9 +18,16 @@ public class Lane : MonoBehaviour
     List<Note> notes = new List<Note>();
     public Player playerObject;
     public List<double> timeStamps = new List<double>();
+    public TextMeshProUGUI accuracyText;
+    public bool hasBeenHurt;
     
-    
-    
+
+    public GameObject questTestPrefab;
+
+    public bool hasBeenCollected;
+
+
+
     public GameObject RhythmGame;
     public float noteAmount;
     public TextMeshProUGUI endText;
@@ -46,12 +54,7 @@ public class Lane : MonoBehaviour
 
     public void Start()
     {
-        RhythmButton = InputSystem.actions.FindAction("RhythmButton");
         noteAmount = timeStamps.Count;
-        
-        
-
-
     }
     public void Awake()
     {
@@ -93,6 +96,11 @@ public class Lane : MonoBehaviour
                 {
                     Hit();
                     Debug.Log("Perfect");
+                    
+                    accuracyText.text = "Perfect!";
+                    accuracyText.color = new Color(1f, 1f, 0f, 1f); //
+                    accuracyText.CrossFadeAlpha(1f, 0f, false); // Reset alpha to 1 before fading out
+                    accuracyText.CrossFadeAlpha(0f, 0.5f, false); // Fades out the text over 0.5 seconds              
                     // I will be changing this to not destroy it but instead make it invisible, freeze it in place, and then use particle effects to make things feel more impactful. later.
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
@@ -101,6 +109,10 @@ public class Lane : MonoBehaviour
                 {
                     Hit();
                     Debug.Log("Great");
+                    accuracyText.text = "Great";
+                    accuracyText.color = new Color(0f, 0f, 1f, 1f); // 
+                    accuracyText.CrossFadeAlpha(1f, 0f, false); // Reset alpha to 1 before fading out
+                    accuracyText.CrossFadeAlpha(0f, 0.5f, false); // Fades out the text over 0.5 seconds
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
@@ -108,6 +120,10 @@ public class Lane : MonoBehaviour
                 {
                     Hit();
                     Debug.Log("Good");
+                    accuracyText.text = "Good";
+                    accuracyText.color = new Color(0f, 1f, 0f, 1f); //
+                    accuracyText.CrossFadeAlpha(1f, 0f, false); // Reset alpha to 1 before fading out
+                    accuracyText.CrossFadeAlpha(0f, 0.5f, false); // Fades out the text over 0.5 seconds
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
@@ -128,21 +144,42 @@ public class Lane : MonoBehaviour
         }
     }
 
+  
+
+
     //This checks if the song is over and then deactivates the rhythm game and reactivates the player. I will be changing this to a results screen later on.
     private System.Collections.IEnumerator EndSong()
     {
         
         yield return new WaitForSeconds(2f);
+        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject healthTracking = GameObject.FindWithTag("HealthTracker");
+        
+
         if (ScoreManager.instance.hitAmount > timeStamps.Count / 1.4)
         {
             endText.text = "You win!";
+            if (hasBeenCollected == false)
+            {
+                StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
+                hasBeenCollected = true;
+            }
         }
         else
         {
             endText.text = "You lose!";
+            if(hasBeenHurt== false)
+            {
+               StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
+                hasBeenHurt = true;
+            }
+            
         }
         yield return new WaitForSeconds(2f);
         playerObject.gameObject.SetActive(true);
+        hasBeenCollected = false;
+        
+        questTestPrefab.GetComponent<Canvas>().enabled = true;
         playerObject.inRhythmGame = false;
         playerObject.controlLock = false;
         
