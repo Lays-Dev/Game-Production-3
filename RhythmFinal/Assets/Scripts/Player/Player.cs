@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -12,16 +13,18 @@ public class Player : MonoBehaviour
     public bool inRhythmGame = false;
     public bool controlLock = false;
     public GameObject RhythmPrefab;
+    public CinemachineCamera playerCamera; // Reference to the player's main camera
+    
 
     public float Distance = 5f; // Distance for raycasting to detect items
 
-    public Transform cameraTransform; // Camera
+    public Transform cameraTransform; // Reference to the camera's transform for movement direction
 
     [Header("Colliders")]
     public Collider DetectionBox; // Collider for detecting items
 
     [Header("QuestBoard")]
-    private QuestBoard currentQuestBoard;
+    public QuestBoard currentQuestBoard;
 
 
     [Header("Layers")]
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour
     [Header("UI/ MISC stuff")]
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
     
-    
+    public LockMouse mouseLock;
         
 
     private void OnMove(InputValue inputValue) // function to make the guy move
@@ -70,7 +73,18 @@ public class Player : MonoBehaviour
         {
             // Code to interact with quest board
             Debug.Log("Interacted with Quest Board");
-            currentQuestBoard.openBoard();
+            currentQuestBoard.openBoard(this);
+        }
+        
+    }
+
+    private void OnBack(InputValue inputValue)
+    {
+        if(!inputValue.isPressed) return;
+
+        if(currentQuestBoard != null)
+        {
+            currentQuestBoard.closeBoard(this);
         }
         
     }
