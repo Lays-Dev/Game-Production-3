@@ -517,12 +517,19 @@ MonoBehaviour:
   inRhythmGame: 0
   controlLock: 0
   RhythmPrefab: {fileID: 3016682706750873827, guid: edefac8f742199742ae9014743fc3711, type: 3}
+  playerCamera: {fileID: 0}
   Distance: 5
   cameraTransform: {fileID: 7939948331410086803}
   DetectionBox: {fileID: 2210592716927434206}
+  currentQuestBoard: {fileID: 0}
   itemsLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
+  questBoardLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isinteractable: 0
+  mouseLock: {fileID: 0}
 --- !u!114 &689550494003634106
 MonoBehaviour:
   m_ObjectHideFlags: 0

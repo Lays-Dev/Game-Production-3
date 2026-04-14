@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262014728}
   - component: {fileID: 262014729}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: QuestBoard Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188289570}
   - component: {fileID: 1188289569}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: QuestBoard Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 1624707658}
   - component: {fileID: 1624707657}
   - component: {fileID: 1624707661}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: QuestBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

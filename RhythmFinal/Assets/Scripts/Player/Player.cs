@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
     
     public LockMouse mouseLock;
+
         
 
     private void OnMove(InputValue inputValue) // function to make the guy move
@@ -152,6 +153,13 @@ public class Player : MonoBehaviour
         Vector3 movement = forward * movementInput.y + right * movementInput.x;
 
         rb.MovePosition(rb.position + movement * Speed * Time.fixedDeltaTime);
+
+        //makes character rotate to movement direction
+        if (movement != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f);
+        }
         
     }
     
@@ -168,5 +176,7 @@ public class Player : MonoBehaviour
             }
 
         }
+
+        
     }
 }
