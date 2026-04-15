@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     
     public LockMouse mouseLock;
 
+
         
 
     private void OnMove(InputValue inputValue) // function to make the guy move
@@ -176,6 +177,8 @@ public class Player : MonoBehaviour
             }
 
         }
+
+
 
         
     }
