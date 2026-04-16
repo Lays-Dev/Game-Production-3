@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,13 @@ public class Player : MonoBehaviour
 
     [Header("QuestBoard")]
     public QuestBoard currentQuestBoard;
+
+    [Header("Dash")]
+    public float dashSpeed = 15f;
+    public float dashCooldown = 1f;
+    public float dashDuration = 0.2f;
+    public bool canDash = true;
+    public bool isDashing = false;
 
 
     [Header("Layers")]
@@ -91,6 +99,40 @@ public class Player : MonoBehaviour
         
     }
 
+    private void OnDash(InputValue inputValue)
+    {
+        // triggers the coroutine
+        if (!inputValue.isPressed) return;
+
+        if (canDash && !isDashing) // if player isn't dashing but can dash, trigger coroutine
+        {
+            StartCoroutine(DashRoutine());
+        }
+
+
+    }
+
+    IEnumerator DashRoutine()
+    {
+        canDash = false;
+        isDashing = true;
+
+        Vector3 dashDirection = transform.forward; // makes the dash go where the player is facing
+
+        float startTime = Time.time;
+
+        while(Time.time < startTime + dashDuration)
+        {
+            rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown); // triggers cooldown
+        canDash = true;
+    }
+
     private void OnTriggerEnter(Collider other) // doesn't pick up item, that's onInteract that does that
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Items")) // reads for objects in items layer
@@ -141,6 +183,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate ()
     {
+        if (isDashing) return; // prevents issues with the dash
+        
         // to make movement based on camera
         // grabs camera movements
         Vector3 forward = cameraTransform.forward;

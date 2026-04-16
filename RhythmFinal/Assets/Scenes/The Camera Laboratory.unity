@@ -301,6 +301,22 @@ PrefabInstance:
       propertyPath: HorizontalAxis.Center
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: canDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: dashSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7842824136013500847, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8248425
