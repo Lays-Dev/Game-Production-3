@@ -680,6 +680,11 @@ MonoBehaviour:
   cameraTransform: {fileID: 7939948331410086803}
   DetectionBox: {fileID: 2210592716927434206}
   currentQuestBoard: {fileID: 0}
+  dashSpeed: 15
+  dashCooldown: 1
+  dashDuration: 0.2
+  canDash: 1
+  isDashing: 0
   itemsLayer:
     serializedVersion: 2
     m_Bits: 512
