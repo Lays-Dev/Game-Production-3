@@ -685,12 +685,22 @@ MonoBehaviour:
   dashDuration: 0.2
   canDash: 1
   isDashing: 0
+  skyBoxChanger: {fileID: 0}
+  doorManager: {fileID: 0}
+  doorInRange: 0
+  skyBoxChangerInRange: 0
   itemsLayer:
     serializedVersion: 2
     m_Bits: 512
   questBoardLayer:
     serializedVersion: 2
     m_Bits: 2048
+  SkyboxChangerLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   isinteractable: 0
   mouseLock: {fileID: 689550494003634106}
 --- !u!114 &689550494003634106

@@ -34,11 +34,19 @@ public class Player : MonoBehaviour
     public bool canDash = true;
     public bool isDashing = false;
 
+    [Header("Sky Box & Level Changer")]
+    public SkyBoxChanger skyBoxChanger; // Reference to the SkyBoxChanger script to change skyboxes
+    public DoorManager doorManager; // Reference to the DoorManager script to change scenes
+    public bool doorInRange = false; // To track if the player is in range of a door
+    public bool skyBoxChangerInRange = false; // To track if the player is in range of a skybox changer
+
 
     [Header("Layers")]
     public LayerMask itemsLayer; // Layer for items
     private List<Items> itemsInRange = new List<Items>();
     public LayerMask questBoardLayer; // Layer for quest board
+    public LayerMask SkyboxChangerLayer; // Layer for skybox changer
+    public LayerMask doorLayer; // Layer for doors
 
     [Header("UI/ MISC stuff")]
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
@@ -84,6 +92,18 @@ public class Player : MonoBehaviour
             // Code to interact with quest board
             Debug.Log("Interacted with Quest Board");
             currentQuestBoard.openBoard(this);
+        }
+
+        if (skyBoxChanger != null && skyBoxChangerInRange)
+        {
+            skyBoxChanger.ChangeSkybox();
+            return;
+        }
+
+        if (doorManager != null && doorInRange)
+        {
+            doorManager.EnterLevel();
+            return;
         }
         
     }
@@ -145,12 +165,25 @@ public class Player : MonoBehaviour
             }
         }
 
-        
         if (other.gameObject.layer == LayerMask.NameToLayer("QuestBoard"))
         {
             currentQuestBoard = other.GetComponent<QuestBoard>();
             isinteractable = true; 
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("SkyboxChanger"))
+        {
+            skyBoxChanger = other.GetComponent<SkyBoxChanger>();
+            skyBoxChangerInRange = true; // this and door have different bools due to issues with the interaction system
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
+        {
+            doorManager = other.GetComponent<DoorManager>();
+            doorInRange = true;
+        }
+
+
     }
 
     private void OnTriggerExit(Collider other) // system to remove items from list of ones that can be picked up
@@ -169,6 +202,18 @@ public class Player : MonoBehaviour
         {
             currentQuestBoard = null;
             isinteractable = false; 
+        }
+
+        if(other.gameObject.layer == LayerMask.NameToLayer("SkyboxChanger"))
+        {
+            skyBoxChanger = null;
+            isinteractable = false;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
+        {
+            doorManager = null;
+            isinteractable = false;
         }
     }
 
