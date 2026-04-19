@@ -315,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.1
+      value: 37.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -353,6 +353,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.21
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: db32f71f062e1f3438de97107cbbf2b4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: acf69cfde2c04ff48b8233c25b03a8b3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 59d96612a8210034eb80eaf159009156, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 49477cbec2292a34d871ca9a5a8523e0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c1c2e20438003f24daddf19bca2dccd4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 69ea9a911996ace4c9b0150cecec2377, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f514e0b7175e7ef45a18d2baa80968af, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 229a8daeeecb81943900fb426983fad5, type: 2}
     - target: {fileID: 919132149155446097, guid: e3e45405092b4ee4f8a93168952aff4a, type: 3}
       propertyPath: m_Name
       value: Blacksmith3
