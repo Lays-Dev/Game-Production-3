@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon Shader
+  m_Name: Stump_m 2
   m_Shader: {fileID: -6465566751694194690, guid: b99265c667661434cb1909c9f54c2403, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: 78f6f8dd1b7ce7c49b630f4606a0e9dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7a125f5e1dcd21844b17a56cdcc29530, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
