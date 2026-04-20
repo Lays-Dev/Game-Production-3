@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
     public bool canDash = true;
     public bool isDashing = false;
 
+    [Header("HitNote")]
+    public bool hitNotePressed = false;
+
+
 
     [Header("Layers")]
     public LayerMask itemsLayer; // Layer for items
@@ -172,6 +176,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnHitNote(InputValue inputValue) // this is where we press the note button 
+    {
+        if (!inputValue.isPressed) return;
+
+        hitNotePressed = true;
+    }
+
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -206,6 +217,11 @@ public class Player : MonoBehaviour
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f);
         }
         
+    }
+
+    void LateUpdate()
+    {
+        hitNotePressed = false; // resets the hit note button every frame so it only registers once per press
     }
     
     // Update is called once per frame
