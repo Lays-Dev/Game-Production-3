@@ -8,12 +8,29 @@ public class Items : MonoBehaviour
     public string itemName;
     public string itemDescription;
     public int amount;
-    
+    public GameObject MusicGamePrefab;
+    public GameObject worldUI;
     
     public void PickUp(Inventory inventory)
     {
-        inventory.AddItem(itemName, amount); // adds to inventory
-        Destroy(gameObject); // get rid of the model, smithing girl is strong but we don't want the game to look like Death Stranding.
+        Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+
+   
     }
-    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+
+            worldUI.SetActive(true);
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            worldUI.SetActive(false);
+        }
+    }
 }
+
