@@ -12,4 +12,11 @@ public class MainMenu : MonoBehaviour
         // Async loads the game per frame and doesn't freeze the UI while loading
         SceneManager.LoadSceneAsync(1);
     }
+
+    // Quit function
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit button clicked");
+    }
 }
