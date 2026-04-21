@@ -19830,7 +19830,7 @@ MonoBehaviour:
   m_ActionsAsset: {fileID: -944628639613478452, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_PointAction: {fileID: -8419989693716024612, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_MoveAction: {fileID: 5730856551038821293, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
-  m_SubmitAction: {fileID: 0}
+  m_SubmitAction: {fileID: 4374956876443361319, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: 4374956876443361319, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_MiddleClickAction: {fileID: 4374956876443361319, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
