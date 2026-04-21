@@ -5008,7 +5008,7 @@ GameObject:
   - component: {fileID: 214506014}
   - component: {fileID: 214506016}
   - component: {fileID: 214506015}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7855,7 +7855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343626996}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu Folder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7876,6 +7876,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1876613609}
+  - {fileID: 391173162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &361360081
@@ -8357,7 +8358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 391173162}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8372,15 +8373,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391173161}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 506.0735, y: 250.27025, z: -2.776205}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.761993, y: -14.408676, z: -109.4952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 214506017}
   - {fileID: 2005728000}
   - {fileID: 489255950}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 343626996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &417950839
 Mesh:
@@ -11094,7 +11095,8 @@ GameObject:
   - component: {fileID: 489255953}
   - component: {fileID: 489255952}
   - component: {fileID: 489255951}
-  m_Layer: 0
+  - component: {fileID: 489255954}
+  m_Layer: 5
   m_Name: Pause Interact Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11184,6 +11186,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &489255954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489255949}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &490261764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18605,7 +18619,7 @@ GameObject:
   - component: {fileID: 888322831}
   - component: {fileID: 888322833}
   - component: {fileID: 888322832}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19458,7 +19472,7 @@ GameObject:
   - component: {fileID: 933233943}
   - component: {fileID: 933233945}
   - component: {fileID: 933233944}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19499,11 +19513,11 @@ MonoBehaviour:
   m_ActionsAsset: {fileID: -944628639613478452, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_PointAction: {fileID: -8419989693716024612, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_MoveAction: {fileID: 5730856551038821293, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
-  m_MiddleClickAction: {fileID: 0}
-  m_RightClickAction: {fileID: 0}
+  m_SubmitAction: {fileID: 7723660325210978314, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
+  m_CancelAction: {fileID: 9135428155983882965, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
+  m_LeftClickAction: {fileID: 7723660325210978314, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
+  m_MiddleClickAction: {fileID: 7723660325210978314, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
+  m_RightClickAction: {fileID: 7723660325210978314, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_ScrollWheelAction: {fileID: 6575523590459793027, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_TrackedDevicePositionAction: {fileID: 1886330572091938968, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 2986758554441773921, guid: ad662bc48dd0df145bb2d7409b9955da, type: 3}
@@ -33235,7 +33249,7 @@ GameObject:
   - component: {fileID: 1193728473}
   - component: {fileID: 1193728472}
   - component: {fileID: 1193728471}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33306,9 +33320,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e62ea803e6c442d4db262ea1a5240e16, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: 
+      - m_Target: {fileID: 1876613610}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33818,7 +33832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299183501}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34724,7 +34738,7 @@ GameObject:
   - component: {fileID: 1491623418}
   - component: {fileID: 1491623420}
   - component: {fileID: 1491623419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41622,7 +41636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876613609}
   - component: {fileID: 1876613610}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41658,6 +41672,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuPanel: {fileID: 391173161}
   playerInput: {fileID: 1874090493}
+  playerController: {fileID: 1874090493}
+  lockMouse: {fileID: 0}
+  clickAction: {fileID: 0}
 --- !u!1001 &1893869998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43638,7 +43655,8 @@ GameObject:
   - component: {fileID: 2005728003}
   - component: {fileID: 2005728002}
   - component: {fileID: 2005728001}
-  m_Layer: 0
+  - component: {fileID: 2005728004}
+  m_Layer: 5
   m_Name: Pause Static Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43672,7 +43690,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005727999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -43728,6 +43746,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &2005728004
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005727999}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &2010598468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5931720622167026278, guid: cd111ac8279b1ba48b13549119234ee2, type: 3}
@@ -43914,6 +43944,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2497850860862395652, guid: 42d5b47f5940dd14f8083b822520ccce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445750717280809057, guid: 42d5b47f5940dd14f8083b822520ccce, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5670987694977028152, guid: 42d5b47f5940dd14f8083b822520ccce, type: 3}
@@ -45863,4 +45897,3 @@ SceneRoots:
   - {fileID: 207796877}
   - {fileID: 1299183501}
   - {fileID: 343626996}
-  - {fileID: 391173162}

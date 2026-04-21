@@ -26,6 +26,7 @@ public class LockMouse : MonoBehaviour
             Cursor.visible = true; // make cursor visible again
         }
         
+
     }
 
     
