@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
     public bool canDash = true;
     public bool isDashing = false;
 
+    [Header("HitNote")]
+    public bool hitNotePressed = false;
+
+
 
     [Header("Layers")]
     public LayerMask itemsLayer; // Layer for items
@@ -43,7 +47,10 @@ public class Player : MonoBehaviour
     [Header("UI/ MISC stuff")]
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
     
-    public LockMouse mouseLock;
+    //public LockMouse mouseLock;
+
+    Animator animator;
+
 
 
         
@@ -117,6 +124,8 @@ public class Player : MonoBehaviour
         canDash = false;
         isDashing = true;
 
+        animator.SetBool("IsDashing", true);
+
         Vector3 dashDirection = transform.forward; // makes the dash go where the player is facing
 
         float startTime = Time.time;
@@ -128,6 +137,7 @@ public class Player : MonoBehaviour
         }
 
         isDashing = false;
+        animator.SetBool("IsDashing", false);
 
         yield return new WaitForSeconds(dashCooldown); // triggers cooldown
         canDash = true;
@@ -172,12 +182,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnHitNote(InputValue inputValue) // this is where we press the note button 
+    {
+        if (!inputValue.isPressed) return;
+
+        hitNotePressed = true;
+    }
+
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // assign rigidbody.
+
+        animator = GetComponentInChildren<Animator>();
 
     }
 
@@ -207,6 +226,11 @@ public class Player : MonoBehaviour
         }
         
     }
+
+    void LateUpdate()
+    {
+        hitNotePressed = false; // resets the hit note button every frame so it only registers once per press
+    }
     
     // Update is called once per frame
     void Update()
@@ -222,8 +246,11 @@ public class Player : MonoBehaviour
 
         }
 
+        // animator settings
+        float speed = movementInput.magnitude; 
+        animator.SetFloat("Speed", speed);
 
 
-        
+
     }
 }

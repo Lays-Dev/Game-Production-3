@@ -10,12 +10,9 @@ public class PauseMenu : MonoBehaviour
     [Header("Gameplay Input")]
     // PlayerInput is the input system the player will use to interact with the pause menu
     [SerializeField] private PlayerInput playerInput;  
-    // Place PlayerController here to disable player movement and mouse lock when the game is paused. This should be the script that controls player movement.
-    [SerializeField] private MonoBehaviour playerController; 
-    [SerializeField] private LockMouse lockMouse;
+    
 
     private bool isPaused = false;
-    
 
     private void Awake()
     {
@@ -74,8 +71,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         playerInput.SwitchCurrentActionMap("UI"); // Switch to UI input map
-        playerController.enabled = false; // Disable player controller
-        playerController.gameObject.SetActive(false); // Deactivate the player controller object
+
     }
 
     public void ResumeGame()
@@ -91,8 +87,6 @@ public class PauseMenu : MonoBehaviour
             pauseMenuPanel.SetActive(false); // Hide the pause menu UI
         }
         playerInput.SwitchCurrentActionMap("Player"); // Switch back to player input map
-        playerController.enabled = true; // Enable player controller
-        playerController.gameObject.SetActive(true); // Activate the player controller object
         Debug.Log("Resuming the game");
     }
 
@@ -105,5 +99,4 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0); // Load the main menu scene 
     }
 
-    
 }

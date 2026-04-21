@@ -23,8 +23,19 @@ public class HealthTracking : MonoBehaviour
         hasBeenHurt = false;
 
     }
-    
-    
+    public IEnumerator TakeSmallDamage()
+    {
+        if (hasBeenHurt == false)
+        {
+            health -= .1f;
+            hasBeenHurt = true;
+        }
+        yield return new WaitForSeconds(.1f);
+        hasBeenHurt = false;
+
+    }
+
+
     void Update()
     {
         healthBar.fillAmount = health;

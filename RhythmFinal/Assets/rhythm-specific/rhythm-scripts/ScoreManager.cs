@@ -24,14 +24,14 @@ public class ScoreManager : MonoBehaviour
     }
     public IEnumerator FindUI()
     {
-        
+
         yield return new WaitForSeconds(.1f);
         QuestUI = GameObject.FindWithTag("UI");
-        QuestUI.GetComponent<Canvas>().enabled = false;
+        QuestUI.SetActive(false);
     }
     public void Awake()
     {
-        
+
     }
     // This is the function that is called when the player hits a note. It plays a sound effect, increases the hit amount and combo amount by 1, and updates the UI.
     public static void hit()
@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
     // This is the function that updates the UI every frame. It updates the combo counter and the hit amounts.
     void Update()
     {
-         ComboCounter.text = instance.comboAmount + "x";
+        ComboCounter.text = instance.comboAmount + "x";
         HitAmounts.text = instance.hitAmount + "/" + instance.noteAmount.timeStamps.Count;
     }
 }
