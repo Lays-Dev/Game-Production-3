@@ -49,6 +49,9 @@ public class Player : MonoBehaviour
     
     public LockMouse mouseLock;
 
+    Animator animator;
+
+
 
         
 
@@ -190,6 +193,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); // assign rigidbody.
 
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void FixedUpdate ()
@@ -238,8 +243,11 @@ public class Player : MonoBehaviour
 
         }
 
+        // animator settings
+        float speed = movementInput.magnitude; 
+        animator.SetFloat("Speed", speed);
 
 
-        
+
     }
 }
