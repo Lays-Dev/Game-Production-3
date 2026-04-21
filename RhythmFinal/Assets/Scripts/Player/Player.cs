@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     [Header("UI/ MISC stuff")]
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
     
-    public LockMouse mouseLock;
+    //public LockMouse mouseLock;
 
 
         

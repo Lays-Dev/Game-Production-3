@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Gameplay Input")]
     // PlayerInput is the input system the player will use to interact with the pause menu
     [SerializeField] private PlayerInput playerInput;  
+    
 
     private bool isPaused = false;
 
