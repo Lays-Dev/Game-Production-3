@@ -124,6 +124,8 @@ public class Player : MonoBehaviour
         canDash = false;
         isDashing = true;
 
+        animator.SetBool("IsDashing", true);
+
         Vector3 dashDirection = transform.forward; // makes the dash go where the player is facing
 
         float startTime = Time.time;
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
         }
 
         isDashing = false;
+        animator.SetBool("IsDashing", false);
 
         yield return new WaitForSeconds(dashCooldown); // triggers cooldown
         canDash = true;

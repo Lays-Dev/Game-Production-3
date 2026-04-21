@@ -9494,6 +9494,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: 66e736e9ddff24243a8c977194854b39, type: 3}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: dashDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7312995044705505628, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.2972
@@ -35897,6 +35905,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e163a97ff9fa6ca41b5d4d9b30406624, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 10a81433ef4c21c41aa1df7ba33b34d4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
