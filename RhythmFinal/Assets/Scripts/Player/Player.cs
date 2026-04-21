@@ -49,6 +49,9 @@ public class Player : MonoBehaviour
     
     //public LockMouse mouseLock;
 
+    Animator animator;
+
+
 
         
 
@@ -121,6 +124,8 @@ public class Player : MonoBehaviour
         canDash = false;
         isDashing = true;
 
+        animator.SetBool("IsDashing", true);
+
         Vector3 dashDirection = transform.forward; // makes the dash go where the player is facing
 
         float startTime = Time.time;
@@ -132,6 +137,7 @@ public class Player : MonoBehaviour
         }
 
         isDashing = false;
+        animator.SetBool("IsDashing", false);
 
         yield return new WaitForSeconds(dashCooldown); // triggers cooldown
         canDash = true;
@@ -190,6 +196,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); // assign rigidbody.
 
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void FixedUpdate ()
@@ -238,8 +246,11 @@ public class Player : MonoBehaviour
 
         }
 
+        // animator settings
+        float speed = movementInput.magnitude; 
+        animator.SetFloat("Speed", speed);
 
 
-        
+
     }
 }
