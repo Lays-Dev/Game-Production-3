@@ -129,7 +129,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HitNote / Forward"",
+                    ""name"": ""HitNote"",
                     ""type"": ""Button"",
                     ""id"": ""0f988c7a-91ed-4dd5-993f-8e57fd842758"",
                     ""expectedControlType"": """",
@@ -329,7 +329,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HitNote / Forward"",
+                    ""action"": ""HitNote"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -340,7 +340,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HitNote / Forward"",
+                    ""action"": ""HitNote"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -351,7 +351,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HitNote / Forward"",
+                    ""action"": ""HitNote"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -362,7 +362,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HitNote / Forward"",
+                    ""action"": ""HitNote"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -798,7 +798,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_HitNoteForward = m_Player.FindAction("HitNote / Forward", throwIfNotFound: true);
+        m_Player_HitNote = m_Player.FindAction("HitNote", throwIfNotFound: true);
         m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
@@ -896,7 +896,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_HitNoteForward;
+    private readonly InputAction m_Player_HitNote;
     private readonly InputAction m_Player_Back;
     private readonly InputAction m_Player_Dash;
     /// <summary>
@@ -927,9 +927,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Player/HitNoteForward".
+        /// Provides access to the underlying input action "Player/HitNote".
         /// </summary>
-        public InputAction @HitNoteForward => m_Wrapper.m_Player_HitNoteForward;
+        public InputAction @HitNote => m_Wrapper.m_Player_HitNote;
         /// <summary>
         /// Provides access to the underlying input action "Player/Back".
         /// </summary>
@@ -976,9 +976,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @HitNoteForward.started += instance.OnHitNoteForward;
-            @HitNoteForward.performed += instance.OnHitNoteForward;
-            @HitNoteForward.canceled += instance.OnHitNoteForward;
+            @HitNote.started += instance.OnHitNote;
+            @HitNote.performed += instance.OnHitNote;
+            @HitNote.canceled += instance.OnHitNote;
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
@@ -1008,9 +1008,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @HitNoteForward.started -= instance.OnHitNoteForward;
-            @HitNoteForward.performed -= instance.OnHitNoteForward;
-            @HitNoteForward.canceled -= instance.OnHitNoteForward;
+            @HitNote.started -= instance.OnHitNote;
+            @HitNote.performed -= instance.OnHitNote;
+            @HitNote.canceled -= instance.OnHitNote;
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
@@ -1259,12 +1259,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "HitNote / Forward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "HitNote" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHitNoteForward(InputAction.CallbackContext context);
+        void OnHitNote(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Back" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
