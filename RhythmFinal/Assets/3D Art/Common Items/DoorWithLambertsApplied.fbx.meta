@@ -3,7 +3,27 @@ guid: a4455746bfe0f284f91feea29cb7b478
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: archwaymat
+    second: {fileID: 2100000, guid: 17c003d1a3cb81642baa0d85dd150fec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: doormat
+    second: {fileID: 2100000, guid: 1fa9a2fc8b7c9794a84f2908c9fdea27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hingesmat
+    second: {fileID: 2100000, guid: d88490c4c85d31c499a57d4050874c88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knobmat
+    second: {fileID: 2100000, guid: 80ef95ae0f7bf504cbb3aedc6b7fcf99, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
