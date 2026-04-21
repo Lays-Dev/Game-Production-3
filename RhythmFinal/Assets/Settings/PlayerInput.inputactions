@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HitNote / Forward",
+                    "name": "HitNote",
                     "type": "Button",
                     "id": "0f988c7a-91ed-4dd5-993f-8e57fd842758",
                     "expectedControlType": "",
@@ -243,7 +243,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HitNote / Forward",
+                    "action": "HitNote",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -254,7 +254,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HitNote / Forward",
+                    "action": "HitNote",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -265,7 +265,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HitNote / Forward",
+                    "action": "HitNote",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -276,7 +276,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HitNote / Forward",
+                    "action": "HitNote",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

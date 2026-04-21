@@ -20,7 +20,7 @@ public class Lane : MonoBehaviour
     public List<double> timeStamps = new List<double>();
     public TextMeshProUGUI accuracyText;
     public bool hasBeenHurt;
-    
+
 
     public GameObject questTestPrefab;
 
@@ -31,7 +31,7 @@ public class Lane : MonoBehaviour
     public GameObject RhythmGame;
     public float noteAmount;
     public TextMeshProUGUI endText;
-    
+
 
     public int spawnIndex = 0;
     public int inputIndex = 0;
@@ -55,11 +55,12 @@ public class Lane : MonoBehaviour
     public void Start()
     {
         noteAmount = timeStamps.Count;
+        StartCoroutine(EndSong());
     }
     public void Awake()
     {
-        playerObject = GameObject.FindFirstObjectByType < Player > ();
-            Debug.Log("Found!");
+        playerObject = GameObject.FindFirstObjectByType<Player>();
+        Debug.Log("Found!");
         playerObject.GetComponent<Player>();
     }
     // This is the main function that spawns the notes and also checks for input. It checks if the note should be spawned and then spawns it. It also checks if the player has hit the note and if they have, it destroys the note instantly.
@@ -76,7 +77,7 @@ public class Lane : MonoBehaviour
             }
         }
 
-        if (spawnIndex == timeStamps.Count)
+
         {
             StartCoroutine(EndSong());
         }
@@ -89,14 +90,14 @@ public class Lane : MonoBehaviour
 
             double audioTime = SongManager.GetAudioSourceTime() - (SongManager.instance.inputDelayInMilliseconds / 1000.0);
 
-            // HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
-            if (Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.kKey.wasPressedThisFrame)
+            // changed from hardcoded keys to input system
+            if (playerObject != null && playerObject.hitNotePressed)
             {
                 if (Math.Abs(audioTime - timeStamp) < marginOfError) //  Margin of error is the amount of time that the player can be off by and still have it count as a hit. we will use multiple margins of error to create our PERFECT,GOOD,OKAY, effects
                 {
                     Hit();
                     Debug.Log("Perfect");
-                    
+
                     accuracyText.text = "Perfect!";
                     accuracyText.color = new Color(1f, 1f, 0f, 1f); //
                     accuracyText.CrossFadeAlpha(1f, 0f, false); // Reset alpha to 1 before fading out
@@ -105,7 +106,7 @@ public class Lane : MonoBehaviour
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
-                else if (Math.Abs(audioTime - timeStamp) < marginOfError1) 
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError1)
                 {
                     Hit();
                     Debug.Log("Great");
@@ -116,7 +117,7 @@ public class Lane : MonoBehaviour
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
                 }
-                else if (Math.Abs(audioTime - timeStamp) < marginOfError2) 
+                else if (Math.Abs(audioTime - timeStamp) < marginOfError2)
                 {
                     Hit();
                     Debug.Log("Good");
@@ -130,6 +131,7 @@ public class Lane : MonoBehaviour
                 else
                 {
                     Debug.Log("Inaccurate");
+                    StartCoroutine(InaccurateDamage());
                 }
 
             }
@@ -138,60 +140,74 @@ public class Lane : MonoBehaviour
             {
                 Miss();
                 Debug.Log("miss");
+                StartCoroutine(InaccurateDamage());
                 inputIndex++;
 
             }
         }
     }
 
-  
+    private IEnumerator InaccurateDamage()
+    {
+        GameObject healthTracking = GameObject.FindWithTag("HealthTracker");
+        if (hasBeenHurt == false)
+        {
+            StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeSmallDamage());
+            hasBeenHurt = true;
+        }
+        yield return new WaitForSeconds(.1f);
+        hasBeenHurt = false;
+    }
 
 
     //This checks if the song is over and then deactivates the rhythm game and reactivates the player. I will be changing this to a results screen later on.
     private System.Collections.IEnumerator EndSong()
     {
-        
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
+        yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
+        yield return new WaitForSeconds(2f); // Wait for a short delay to ensure the last note has been processed
         GameObject questTestPrefab = GameObject.FindWithTag("UI");
         GameObject healthTracking = GameObject.FindWithTag("HealthTracker");
-        
 
-        if (ScoreManager.instance.hitAmount > timeStamps.Count / 1.4)
         {
-            endText.text = "You win!";
-            if (hasBeenCollected == false)
-            {
-                StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
-                hasBeenCollected = true;
-            }
-        }
-        else
-        {
-            endText.text = "You lose!";
-            if(hasBeenHurt== false)
-            {
-               StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
-                hasBeenHurt = true;
-            }
-            
-        }
-        yield return new WaitForSeconds(2f);
-        playerObject.gameObject.SetActive(true);
-        hasBeenCollected = false;
-        
-        questTestPrefab.GetComponent<Canvas>().enabled = true;
-        playerObject.inRhythmGame = false;
-        playerObject.controlLock = false;
-        
-        Destroy(RhythmGame);
 
+
+            if (ScoreManager.instance.hitAmount > timeStamps.Count / 1.4)
+            {
+                endText.text = "You win!";
+                if (hasBeenCollected == false)
+                {
+                    StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
+                    hasBeenCollected = true;
+                }
+            }
+            else
+            {
+                endText.text = "You lose!";
+                if (hasBeenHurt == false)
+                {
+                    StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
+                    hasBeenHurt = true;
+                }
+
+            }
+            yield return new WaitForSeconds(2f);
+            playerObject.gameObject.SetActive(true);
+            hasBeenCollected = false;
+
+            questTestPrefab.GetComponent<Canvas>().enabled = true;
+            playerObject.inRhythmGame = false;
+            playerObject.controlLock = false;
+
+            Destroy(RhythmGame);
+        }
     }
     private void Hit()
     {
         ScoreManager.hit();
-    }    
+    }
     private void Miss()
     {
         ScoreManager.miss();
     }
-    }
+}
