@@ -9500,7 +9500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: dashDuration
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7312995044705505628, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalPosition.y
