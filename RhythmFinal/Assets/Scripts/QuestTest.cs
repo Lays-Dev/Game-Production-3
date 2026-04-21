@@ -31,7 +31,7 @@ public class QuestTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        QuestTitle.text = "???";
-        QuestText.text = "Collect " + itemsCollected + "/" + "4" + " ???";
+        QuestTitle.text = "Quest Tracker";
+        QuestText.text = "Collect " + itemsCollected + "/" + "4" + " Enchanted Planks";
     }
 }

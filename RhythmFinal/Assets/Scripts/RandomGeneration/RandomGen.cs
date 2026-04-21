@@ -36,7 +36,7 @@ public class RandomGen : MonoBehaviour
                 Debug.Log("Picked: " + selectedItem.name);
                 spawned.Add(selectedItem);
                 spawnCount++;
-                Instantiate(pickedSong, selectedItem.transform.position, Quaternion.identity);
+                Instantiate(pickedSong, selectedItem.transform.position, Quaternion.Euler(-90, 0, 0));
                 yield return new WaitForSeconds(.2f);
             }
             else 
