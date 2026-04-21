@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Items : MonoBehaviour
@@ -31,6 +32,11 @@ public class Items : MonoBehaviour
         {
             worldUI.SetActive(false);
         }
+    }
+    public IEnumerator CollectItem()
+    {
+        Destroy(gameObject);
+        yield return null;
     }
 }
 

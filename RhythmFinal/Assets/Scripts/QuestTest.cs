@@ -31,7 +31,7 @@ public class QuestTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        QuestTitle.text = "Quest Tracker";
+        QuestTitle.text = "Song of the Caged Bird";
         QuestText.text = "Collect " + itemsCollected + "/" + "4" + " Enchanted Planks";
     }
 }

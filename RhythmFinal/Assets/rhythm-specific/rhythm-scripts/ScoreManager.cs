@@ -17,18 +17,12 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        StartCoroutine(FindUI());
+        
 
 
 
     }
-    public IEnumerator FindUI()
-    {
-
-        yield return new WaitForSeconds(.1f);
-        QuestUI = GameObject.FindWithTag("UI");
-        QuestUI.SetActive(false);
-    }
+ 
     public void Awake()
     {
 

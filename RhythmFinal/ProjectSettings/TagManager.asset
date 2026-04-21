@@ -9,6 +9,8 @@ TagManager:
   - UI
   - HealthTracker
   - Evil
+  - UIQuestTitle
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

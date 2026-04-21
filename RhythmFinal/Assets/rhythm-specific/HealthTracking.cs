@@ -35,6 +35,11 @@ public class HealthTracking : MonoBehaviour
 
     }
 
+    public IEnumerator RefillHealth()
+    {
+        health = 1f;
+        yield return null;
+    }
 
     void Update()
     {
