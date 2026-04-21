@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject HUDPanel;
 
     [Header("Gameplay Input")]
     // PlayerInput is the input system the player will use to interact with the pause menu
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void TogglePause()
     {
         Debug.Log("Pause button pressed");
+        //HUDPanel.SetActive(false); // Hide the HUD when pausing the game
         if (isPaused)
         {
             Debug.Log("Unpausing the game");
@@ -60,6 +62,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
+        HUDPanel.SetActive(false);
         Time.timeScale = 0f; // Freeze the game
         AudioListener.pause = true; // Pause audio
         Cursor.visible = true; // Show the cursor
@@ -85,6 +88,7 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenuPanel != null)
         {
             pauseMenuPanel.SetActive(false); // Hide the pause menu UI
+            HUDPanel.SetActive(true); // Hide the HUD when pausing the game
         }
         playerInput.SwitchCurrentActionMap("Player"); // Switch back to player input map
         Debug.Log("Resuming the game");
@@ -92,6 +96,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Debug.Log("Loading the main menu");
         Time.timeScale = 1f; // Ensure the game is unpaused before quitting
         AudioListener.pause = false; // Unpause audio before quitting
         Cursor.visible = true; // Show the cursor before quitting
