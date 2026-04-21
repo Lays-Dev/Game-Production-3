@@ -9159,7 +9159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 503249846404013982, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: HorizontalAxis.Center
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2808246321663287172, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalPosition.x
