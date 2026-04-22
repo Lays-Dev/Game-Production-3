@@ -83,6 +83,11 @@ public class Player : MonoBehaviour
                     itemsInRange.Remove(item); // remove from list of items in range after picking up
                 }
             }
+
+            if (item != null && item.startsRhythmGame)
+            {
+                StartRhythmGame();
+            }
         }
 
         // currentQuestBoard = GetComponent<QuestBoard>();
@@ -92,6 +97,7 @@ public class Player : MonoBehaviour
             Debug.Log("Interacted with Quest Board");
             currentQuestBoard.openBoard(this);
         }
+
         
     }
 
@@ -117,6 +123,17 @@ public class Player : MonoBehaviour
         }
 
 
+    }
+
+    public void StartRhythmGame()
+    {
+        if (inRhythmGame) return;
+
+        inRhythmGame = true;
+        controlLock = true;
+
+        movementInput = Vector2.zero;
+        Instantiate(RhythmPrefab);
     }
 
     IEnumerator DashRoutine()
@@ -191,6 +208,9 @@ public class Player : MonoBehaviour
 
 
     
+
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -202,6 +222,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate ()
     {
+        if (controlLock) return;
+        
         if (isDashing) return; // prevents issues with the dash
         
         // to make movement based on camera
@@ -235,16 +257,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.pKey.isPressed)
-        {
-            if (inRhythmGame == false)
-            {
-                inRhythmGame= true;
-                Instantiate(RhythmPrefab);
-                controlLock = true;
-            }
-
-        }
+        
 
         // animator settings
         float speed = movementInput.magnitude; 

@@ -11,10 +11,19 @@ public class Items : MonoBehaviour
     public int amount;
     public GameObject MusicGamePrefab;
     public GameObject worldUI;
+
+    public bool startsRhythmGame;
     
     public void PickUp(Inventory inventory)
     {
-        Debug.Log("hello");
+        Player player = GameObject.FindFirstObjectByType<Player>();
+
+        if (player != null)
+        {
+            player.inRhythmGame = true;
+            player.controlLock = true;
+        }
+        
         Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
 
    
