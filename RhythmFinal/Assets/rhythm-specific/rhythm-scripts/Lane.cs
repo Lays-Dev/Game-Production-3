@@ -181,7 +181,7 @@ public class Lane : MonoBehaviour
 
             if (ScoreManager.instance.hitAmount > timeStamps.Count / 1.4)
             {
-                endText.text = "You win!";
+                endText.text = "Item Collected!";
                 if (hasBeenCollected == false)
                 {
                     StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
@@ -190,7 +190,7 @@ public class Lane : MonoBehaviour
             }
             else
             {
-                endText.text = "You lose!";
+                endText.text = "Collection Failed";
                 if (hasBeenHurt == false)
                 {
                     StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());

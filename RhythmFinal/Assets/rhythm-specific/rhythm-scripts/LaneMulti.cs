@@ -9,10 +9,12 @@ public class LaneMulti : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public InputAction RhythmButton;
     public GameObject notePrefab;
+    public GameObject Violin;
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
     
     public BossManager BossFight;
+    
 
 
 
@@ -41,6 +43,12 @@ public class LaneMulti : MonoBehaviour
     public void Start()
     {
         noteAmount = timeStamps.Count;
+        StartCoroutine(EndSong());
+        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
+        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
+        
+        questTestPrefab.GetComponent<Canvas>().enabled = false;
     }
 
     void Update()
@@ -63,7 +71,15 @@ public class LaneMulti : MonoBehaviour
     }
     public System.Collections.IEnumerator EndSong()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
+        yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
+        yield return new WaitForSeconds(6f);
+        GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
+        BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
+        GameObject Player = GameObject.FindWithTag("Player");
+        Player.GetComponent<InspectObject>().enabled = true;
+        GameObject WinScreen = GameObject.FindWithTag("WinScreen");
+        WinScreen.GetComponent<Canvas>().enabled = true;
         Destroy(RhythmGame);
     }
 

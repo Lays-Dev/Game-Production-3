@@ -14,6 +14,7 @@ public class Items : MonoBehaviour
     
     public void PickUp(Inventory inventory)
     {
+        Debug.Log("hello");
         Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
 
    

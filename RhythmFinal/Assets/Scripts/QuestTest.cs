@@ -11,10 +11,13 @@ public class QuestTest : MonoBehaviour
     public GameObject Spawner;
     public TextMeshProUGUI QuestTitle;
     public bool hasBeenCollected;
+    public GameObject TreeWall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RandomGen Spawner = this.GetComponent<RandomGen>();
+        QuestTitle.text = "Song of the Caged Bird";
+        
     }
 
     public IEnumerator collectItem()
@@ -26,12 +29,22 @@ public class QuestTest : MonoBehaviour
         }
         yield return new WaitForSeconds(0.4f);
         hasBeenCollected = false;
-        
+        if (itemsCollected == 3)
+        {
+            TreeWall.SetActive(false);
+        }
+
     }
     // Update is called once per frame
     void Update()
     {
-        QuestTitle.text = "Song of the Caged Bird";
-        QuestText.text = "Collect " + itemsCollected + "/" + "4" + " Enchanted Planks";
+        if (itemsCollected == 3)
+        {
+            QuestText.text = "Go Speak To The Elder";
+        }
+        else
+        {
+            QuestText.text = "Collect " + itemsCollected + "/" + "3" + " Enchanted Planks";
+        }
     }
 }
