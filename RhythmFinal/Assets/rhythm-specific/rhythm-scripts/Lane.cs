@@ -56,7 +56,7 @@ public class Lane : MonoBehaviour
     {
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
-        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
         BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f ;
        
@@ -173,7 +173,7 @@ public class Lane : MonoBehaviour
         yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
         yield return new WaitForSeconds(2f); // Wait for a short delay to ensure the last note has been processed
-        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
         GameObject healthTracking = GameObject.FindWithTag("HealthTracker");
 
         {

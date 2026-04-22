@@ -31,7 +31,7 @@ public class Dodger : MonoBehaviour
         if (isOnTop)
         {
             //HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
-            if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
+            if (Keyboard.current.sKey.wasPressedThisFrame && canMove )
             {
                 //
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
@@ -43,7 +43,7 @@ public class Dodger : MonoBehaviour
         }
         else if (isOnMiddle)
         {
-            if(Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
+            if (Keyboard.current.wKey.wasPressedThisFrame && canMove )
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 415);
                 isOnMiddle = false;
@@ -51,7 +51,7 @@ public class Dodger : MonoBehaviour
                 canMove = false;
                 StartCoroutine(CheckIfCanMove());
             }
-            else if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
+            else if (Keyboard.current.sKey.wasPressedThisFrame && canMove )
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 45);
                 isOnMiddle = false;
@@ -62,13 +62,59 @@ public class Dodger : MonoBehaviour
         }
         else if(isOnBottom)
         {
-            if(Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
+            if(Keyboard.current.wKey.wasPressedThisFrame && canMove )
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
                 isOnBottom = false;
                 isOnMiddle = true;
                 canMove = false;
                 StartCoroutine(CheckIfCanMove());
+            }
+        }
+        if (Gamepad.all.Count > 0)
+        {
+            if (isOnTop)
+            {
+                //HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
+                if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
+                {
+                    //
+                    RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
+                    isOnTop = false;
+                    isOnMiddle = true;
+                    canMove = false;
+                    StartCoroutine(CheckIfCanMove());
+                }
+            }
+            else if (isOnMiddle)
+            {
+                if (Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
+                {
+                    RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 415);
+                    isOnMiddle = false;
+                    isOnTop = true;
+                    canMove = false;
+                    StartCoroutine(CheckIfCanMove());
+                }
+                else if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
+                {
+                    RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 45);
+                    isOnMiddle = false;
+                    isOnBottom = true;
+                    canMove = false;
+                    StartCoroutine(CheckIfCanMove());
+                }
+            }
+            else if (isOnBottom)
+            {
+                if (Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
+                {
+                    RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
+                    isOnBottom = false;
+                    isOnMiddle = true;
+                    canMove = false;
+                    StartCoroutine(CheckIfCanMove());
+                }
             }
         }
     }

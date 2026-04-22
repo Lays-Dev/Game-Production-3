@@ -9,7 +9,7 @@ public class LaneMulti : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public InputAction RhythmButton;
     public GameObject notePrefab;
-    public GameObject Violin;
+    
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
     
@@ -79,7 +79,11 @@ public class LaneMulti : MonoBehaviour
         GameObject Player = GameObject.FindWithTag("Player");
         Player.GetComponent<InspectObject>().enabled = true;
         GameObject WinScreen = GameObject.FindWithTag("WinScreen");
+        WinScreen.GetComponent<ExitToMainMenu>().enabled = true;
         WinScreen.GetComponent<Canvas>().enabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
         Destroy(RhythmGame);
     }
 

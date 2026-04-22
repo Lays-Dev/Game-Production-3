@@ -1,20 +1,22 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class Note : MonoBehaviour
 {
     double timeInstantiated;
     public float assignedTime;
     public RectTransform rt; 
-    public Image image;
+    public Image NotePicture;
 
     void Start()
     {
         //
         timeInstantiated = SongManager.GetAudioSourceTime();
-        RectTransform rt = GetComponent<RectTransform>();
-        GetComponent<Image>().SetEnabled(false);
+        rt = GetComponent<RectTransform>();
+        NotePicture= GetComponent<Image>();
+        NotePicture.enabled = false;
         StartCoroutine(NoteVisibility());
     }
 
@@ -42,7 +44,7 @@ public class Note : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);
         Debug.Log("Note should be visible now");
-        GetComponent<Image>().SetEnabled(true);
+        NotePicture.enabled = true;
         yield return null;
 
 

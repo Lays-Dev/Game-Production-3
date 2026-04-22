@@ -149,8 +149,11 @@ public class InspectObject : MonoBehaviour
     void ScrollZoom()
     {
         float scroll = Mouse.current.scroll.ReadValue().y;
-        float controllerScroll = Gamepad.current.leftStick.ReadValue().y;
-        scroll += controllerScroll * 0.5f;
+        if (Gamepad.all.Count > 0)
+        {
+            float controllerScroll = Gamepad.current.leftStick.ReadValue().y;
+            scroll += controllerScroll * 0.5f; // Adjust controller scroll sensitivity
+        }
 
 
         inspectDistance += scroll * scrollSpeed * Time.deltaTime;
@@ -165,19 +168,24 @@ public class InspectObject : MonoBehaviour
     //Rotate object based on mouse movement while left click is held - frame based
     void RotateObject()
     {
-        //Check if left mouse button is held and add to rotation velocity based on mouse movement and sensitivity
-        if (Mouse.current.leftButton.isPressed)
-        {
+        
+        
+        
             Vector2 delta = Mouse.current.delta.ReadValue();
+            if (Gamepad.all.Count > 0)
+            {
             
-               
+                Vector2 stickInput = new Vector2(Gamepad.current.rightStick.ReadValue().x, Gamepad.current.rightStick.ReadValue().y);
+            delta+= stickInput; // Adjust controller stick sensitivity
             rotationVelocity += delta * rotationSensitivity;
-        }
-        else {
-            Vector2 rightStickInput = Gamepad.current.rightStick.ReadValue();
-            
-            rotationVelocity += rightStickInput * rotationSensitivity * 2f;
-        }
+            }
+            else
+            {
+                rotationVelocity += delta * rotationSensitivity;
+            }   
+        
+        
+        
         target.Rotate(
             activeCamera.transform.up,
             -rotationVelocity.x,
