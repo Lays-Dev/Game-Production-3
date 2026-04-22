@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class Dodger : MonoBehaviour
     public bool hasBeenHurt;
     public HealthTracking healthTracking;
     public float invisibilityDuration = 0.5f;
+    
 
 
 
@@ -29,7 +31,7 @@ public class Dodger : MonoBehaviour
         if (isOnTop)
         {
             //HARDCODED KEYBOARD INPUT BAD. WILL CHANGE ONCE PLAYER CONTROLS ARE IN PLACE
-            if (Keyboard.current.sKey.wasPressedThisFrame && canMove)
+            if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
             {
                 //
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
@@ -41,7 +43,7 @@ public class Dodger : MonoBehaviour
         }
         else if (isOnMiddle)
         {
-            if(Keyboard.current.wKey.wasPressedThisFrame && canMove)
+            if(Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 415);
                 isOnMiddle = false;
@@ -49,7 +51,7 @@ public class Dodger : MonoBehaviour
                 canMove = false;
                 StartCoroutine(CheckIfCanMove());
             }
-            else if (Keyboard.current.sKey.wasPressedThisFrame && canMove)
+            else if (Keyboard.current.sKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.down.wasPressedThisFrame && canMove)
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 45);
                 isOnMiddle = false;
@@ -60,7 +62,7 @@ public class Dodger : MonoBehaviour
         }
         else if(isOnBottom)
         {
-            if(Keyboard.current.wKey.wasPressedThisFrame && canMove)
+            if(Keyboard.current.wKey.wasPressedThisFrame && canMove || Gamepad.current.dpad.up.wasPressedThisFrame && canMove)
             {
                 RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, 230);
                 isOnBottom = false;
@@ -85,8 +87,9 @@ public class Dodger : MonoBehaviour
             GameObject healthTracking = GameObject.FindWithTag("HealthTracker");
             if (hasBeenHurt == false)
             {
-                StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
+                StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeSmallDamage());
                 hasBeenHurt = true;
+                
                 StartCoroutine(InvisibilityFrames());
             }
         }
@@ -100,13 +103,14 @@ public class Dodger : MonoBehaviour
     }
     public IEnumerator FlashWhite()
     {
+        
         RawImage rawImage = GetComponent<RawImage>();
         Color originalColor = rawImage.color;
-        rawImage.color = Color.white;
+        rawImage.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rawImage.color = originalColor;
         yield return new WaitForSeconds(0.1f);
-        rawImage.color = Color.white;
+        rawImage.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rawImage.color = originalColor;
         

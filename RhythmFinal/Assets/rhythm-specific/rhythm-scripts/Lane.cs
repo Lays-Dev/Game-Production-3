@@ -56,6 +56,12 @@ public class Lane : MonoBehaviour
     {
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
+        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
+        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f ;
+       
+        questTestPrefab.GetComponent<Canvas>().enabled = false;
+
     }
     public void Awake()
     {
@@ -163,6 +169,7 @@ public class Lane : MonoBehaviour
     //This checks if the song is over and then deactivates the rhythm game and reactivates the player. I will be changing this to a results screen later on.
     private System.Collections.IEnumerator EndSong()
     {
+        
         yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
         yield return new WaitForSeconds(2f); // Wait for a short delay to ensure the last note has been processed
@@ -174,7 +181,7 @@ public class Lane : MonoBehaviour
 
             if (ScoreManager.instance.hitAmount > timeStamps.Count / 1.4)
             {
-                endText.text = "You win!";
+                endText.text = "Item Collected!";
                 if (hasBeenCollected == false)
                 {
                     StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
@@ -183,7 +190,7 @@ public class Lane : MonoBehaviour
             }
             else
             {
-                endText.text = "You lose!";
+                endText.text = "Collection Failed";
                 if (hasBeenHurt == false)
                 {
                     StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
@@ -192,13 +199,14 @@ public class Lane : MonoBehaviour
 
             }
             yield return new WaitForSeconds(2f);
+            GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
+            BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
             playerObject.gameObject.SetActive(true);
             hasBeenCollected = false;
-
             questTestPrefab.GetComponent<Canvas>().enabled = true;
             playerObject.inRhythmGame = false;
             playerObject.controlLock = false;
-
+            StartCoroutine(healthTracking.GetComponent<HealthTracking>().RefillHealth());
             Destroy(RhythmGame);
         }
     }

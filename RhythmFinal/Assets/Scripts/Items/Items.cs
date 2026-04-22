@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Items : MonoBehaviour
@@ -13,6 +14,7 @@ public class Items : MonoBehaviour
     
     public void PickUp(Inventory inventory)
     {
+        Debug.Log("hello");
         Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
 
    
@@ -31,6 +33,11 @@ public class Items : MonoBehaviour
         {
             worldUI.SetActive(false);
         }
+    }
+    public IEnumerator CollectItem()
+    {
+        Destroy(gameObject);
+        yield return null;
     }
 }
 

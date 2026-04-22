@@ -13,22 +13,17 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI ComboCounter;
     public float comboAmount;
     public GameObject QuestUI;
+    public bool inBossFight;
 
     void Start()
     {
         instance = this;
-        StartCoroutine(FindUI());
+        
 
 
 
     }
-    public IEnumerator FindUI()
-    {
-
-        yield return new WaitForSeconds(.1f);
-        QuestUI = GameObject.FindWithTag("UI");
-        QuestUI.SetActive(false);
-    }
+ 
     public void Awake()
     {
 
@@ -47,7 +42,15 @@ public class ScoreManager : MonoBehaviour
     // This is the function that updates the UI every frame. It updates the combo counter and the hit amounts.
     void Update()
     {
-        ComboCounter.text = instance.comboAmount + "x";
-        HitAmounts.text = instance.hitAmount + "/" + instance.noteAmount.timeStamps.Count;
+        if(!inBossFight)
+        {
+            ComboCounter.text = instance.comboAmount + "x";
+            HitAmounts.text = instance.hitAmount + "/" + instance.noteAmount.timeStamps.Count;
+        }
+        else       
+        {
+            ComboCounter.text = "";
+            HitAmounts.text = "";
+        }
     }
 }
