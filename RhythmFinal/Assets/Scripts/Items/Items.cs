@@ -11,6 +11,8 @@ public class Items : MonoBehaviour
     public int amount;
     public GameObject MusicGamePrefab;
     public GameObject worldUI;
+    public int ID;
+    bool canBeInteractedWith = true;
 
     public bool startsRhythmGame;
     
@@ -24,17 +26,29 @@ public class Items : MonoBehaviour
             player.controlLock = true;
         }
         
-        Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+        GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+        Lane lane = spawned.GetComponentInChildren<Lane>();
+        if (lane != null)
+        {
+            lane.LaneID = ID;
+        }
 
    
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && canBeInteractedWith)
         {
 
             worldUI.SetActive(true);
         }
+    }
+
+    public void gameComplete()
+    {
+        worldUI.SetActive(false);
+        this.gameObject .SetActive(false);
+        canBeInteractedWith = false;
     }
     public void OnTriggerExit(Collider other)
     {

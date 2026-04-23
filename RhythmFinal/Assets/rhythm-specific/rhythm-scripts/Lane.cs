@@ -20,7 +20,7 @@ public class Lane : MonoBehaviour
     public List<double> timeStamps = new List<double>();
     public TextMeshProUGUI accuracyText;
     public bool hasBeenHurt;
-
+    public int LaneID;
 
     public GameObject questTestPrefab;
 
@@ -186,6 +186,7 @@ public class Lane : MonoBehaviour
                 {
                     StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
                     hasBeenCollected = true;
+                    GameObject.FindWithTag("Song").GetComponent<Items>().gameComplete();
                 }
             }
             else
@@ -208,6 +209,7 @@ public class Lane : MonoBehaviour
             playerObject.controlLock = false;
             StartCoroutine(healthTracking.GetComponent<HealthTracking>().RefillHealth());
             Destroy(RhythmGame);
+            
         }
     }
     private void Hit()
