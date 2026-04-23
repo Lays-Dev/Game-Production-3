@@ -6,8 +6,23 @@ public class DoorManager : MonoBehaviour
 {
     public string[] scenes;
 
+    public string TutorialLevel = "TutorialLevel";
+    public bool isReturnDoor = false;
+
     public void EnterLevel()
     {
+        
+        if(isReturnDoor)
+        {
+            SceneManager.LoadScene(TutorialLevel);
+        }
+
+        if (LevelState.Instance == null)
+        {
+            Debug.LogError("LevelState is NULL!");
+            return;
+        }
+
         if (!LevelState.Instance.levelSelected) // extra safety check
         {
             Debug.Log("No level selected yet!");
