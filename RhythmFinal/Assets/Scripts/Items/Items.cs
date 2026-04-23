@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Items : MonoBehaviour
 {
@@ -11,9 +13,11 @@ public class Items : MonoBehaviour
     public int amount;
     public GameObject MusicGamePrefab;
     public GameObject worldUI;
-
+    public GameObject Camera;
+    public Image Image;
     public bool startsRhythmGame;
-    
+    public Animator animator;
+
     public void PickUp(Inventory inventory)
     {
         Player player = GameObject.FindFirstObjectByType<Player>();
@@ -23,10 +27,18 @@ public class Items : MonoBehaviour
             player.inRhythmGame = true;
             player.controlLock = true;
         }
+        animator.SetTrigger("FadeIn");
+        StartCoroutine(RhythmGame());
         
-        Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
 
-   
+
+
+    }
+    public IEnumerator RhythmGame()
+    {
+        yield return new WaitForSeconds(1.75f);
+        Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+        Camera.SetActive(true);
     }
     public void OnTriggerEnter(Collider other)
     {
