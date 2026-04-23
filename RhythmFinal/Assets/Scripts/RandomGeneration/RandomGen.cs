@@ -73,10 +73,46 @@ public class RandomGen : MonoBehaviour
         spawned.Clear();
         StartCoroutine(SpawnRandomSong());
     }
-
     void Update()
     {
         if (Keyboard.current.rKey.isPressed)
             ResetGeneration();
+    }
+
+    // Move a song item to a new unoccupied spawn point
+    public void MoveToNewSpawnPoint(GameObject songObject)
+    {
+        // Build list of unoccupied points
+        List<GameObject> availablePoints = new List<GameObject>();
+        foreach (GameObject point in spawnPoints)
+        {
+            if (!spawned.Contains(point))
+                availablePoints.Add(point);
+        }
+
+        if (availablePoints.Count == 0)
+        {
+            Debug.Log("No available spawn points to move to");
+            return;
+        }
+
+        // Pick a random unoccupied point
+        int randomIndex = Random.Range(0, availablePoints.Count);
+        GameObject newPoint = availablePoints[randomIndex];
+
+        // Remove old point from spawned, add new one
+        // Find which old point this song was at
+        foreach (GameObject point in spawned)
+        {
+            if (Vector3.Distance(point.transform.position, songObject.transform.position) < 1f)
+            {
+                spawned.Remove(point);
+                break;
+            }
+        }
+
+        spawned.Add(newPoint);
+        songObject.transform.position = newPoint.transform.position;
+        Debug.Log("Moved song to: " + newPoint.name);
     }
 }
