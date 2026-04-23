@@ -13,14 +13,18 @@ public class QuestTest : MonoBehaviour
 
     void Start()
     {
-        // Get quest title from GameManager
+        //Get quest title from GameManager
         RandomGen Spawner = this.GetComponent<RandomGen>();
         QuestTitle.text = "Song of the Caged Bird";
 
-        //Load quest progress
+        // Load quest progress
         itemsCollected = (int)GameManager.instance.questItemsCollected;
         if (GameManager.instance.questCompleted)
             TreeWall.SetActive(false);
+
+        // Respawn minigames based on remaining items
+        if (Spawner != null)
+            StartCoroutine(Spawner.SpawnRandomSong());
     }
 
     public IEnumerator collectItem()

@@ -38,4 +38,11 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Game Loaded Successfully");
     }
+    public void ResetSave()
+    {
+        questItemsCollected = 0;
+        questCompleted = false;
+        SaveGame();
+        Debug.Log("Quest progress reset");
+    }
 }

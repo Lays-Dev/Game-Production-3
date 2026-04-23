@@ -20,14 +20,14 @@ public class Lane : MonoBehaviour
     public List<double> timeStamps = new List<double>();
     public TextMeshProUGUI accuracyText;
     public bool hasBeenHurt;
-    public int LaneID;
+
 
     public GameObject questTestPrefab;
 
     public bool hasBeenCollected;
 
 
-
+    public int LaneID;
     public GameObject RhythmGame;
     public float noteAmount;
     public TextMeshProUGUI endText;
@@ -197,7 +197,6 @@ public class Lane : MonoBehaviour
                     StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
                     hasBeenHurt = true;
                 }
-
             }
             yield return new WaitForSeconds(2f);
             GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
@@ -209,7 +208,6 @@ public class Lane : MonoBehaviour
             playerObject.controlLock = false;
             StartCoroutine(healthTracking.GetComponent<HealthTracking>().RefillHealth());
             Destroy(RhythmGame);
-            
         }
     }
     private void Hit()
