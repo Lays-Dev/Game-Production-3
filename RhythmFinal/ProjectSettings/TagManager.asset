@@ -12,6 +12,7 @@ TagManager:
   - UIQuestTitle
   - BackgroundMusic
   - WinScreen
+  - Minigame Song
   layers:
   - Default
   - TransparentFX

@@ -392,6 +392,8 @@ MonoBehaviour:
   amount: 1
   MusicGamePrefab: {fileID: 1642129406359886040, guid: 6b52f117171b8d04eb3447ab026a3c88, type: 3}
   worldUI: {fileID: 5028858841443154290}
+  ID: 2
+  startsRhythmGame: 0
 --- !u!65 &4837488644359245659
 BoxCollider:
   m_ObjectHideFlags: 0

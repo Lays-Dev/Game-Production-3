@@ -11,6 +11,9 @@ public class Items : MonoBehaviour
     public int amount;
     public GameObject MusicGamePrefab;
     public GameObject worldUI;
+    public int ID;
+    bool canBeInteractedWith = true;
+    public RandomGen spawner;
 
     public bool startsRhythmGame;
     
@@ -24,18 +27,54 @@ public class Items : MonoBehaviour
             player.controlLock = true;
         }
         
-        Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
-
-   
+        GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+        Lane lane = spawned.GetComponentInChildren<Lane>();
+        if (lane != null)
+        {
+            lane.LaneID = ID;
+        }
     }
+
+    public void Start()
+    {
+        spawner = FindAnyObjectByType<RandomGen>();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && canBeInteractedWith)
         {
 
             worldUI.SetActive(true);
         }
     }
+
+    public void gameComplete()
+    {
+        worldUI.SetActive(false);
+        canBeInteractedWith = false;
+
+        // Remove the spawn point that matches this item's position
+        GameObject pointToRemove = null;
+        foreach (GameObject point in spawner.spawned)
+        {
+            if (Vector3.Distance(point.transform.position, transform.position) < 1f)
+            {
+                pointToRemove = point;
+                break;
+            }
+        }
+        if (pointToRemove != null)
+            spawner.spawned.Remove(pointToRemove);
+
+        this.gameObject.SetActive(false);
+    }
+
+    public void gameFailed()
+    {
+        spawner.MoveToNewSpawnPoint(this.gameObject);
+    }
+
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

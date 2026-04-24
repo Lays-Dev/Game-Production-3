@@ -26,8 +26,7 @@ public class Lane : MonoBehaviour
 
     public bool hasBeenCollected;
 
-
-
+    public int LaneID;
     public GameObject RhythmGame;
     public float noteAmount;
     public TextMeshProUGUI endText;
@@ -83,10 +82,6 @@ public class Lane : MonoBehaviour
             }
         }
 
-
-        {
-            StartCoroutine(EndSong());
-        }
         if (inputIndex < timeStamps.Count)
         {
             double timeStamp = timeStamps[inputIndex];
@@ -186,6 +181,16 @@ public class Lane : MonoBehaviour
                 {
                     StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
                     hasBeenCollected = true;
+                    
+                    GameObject[] miniGames = GameObject.FindGameObjectsWithTag("Song");
+                    foreach (GameObject miniGame in miniGames)
+                    {
+                        if (LaneID == miniGame.GetComponent<Items>().ID)
+                        {
+                            miniGame.GetComponent<Items>().gameComplete();
+                            break;
+                        }
+                    }
                 }
             }
             else
@@ -195,8 +200,19 @@ public class Lane : MonoBehaviour
                 {
                     StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
                     hasBeenHurt = true;
-                }
 
+                    // Find the specific item by LaneID and call gameFailed
+                    GameObject[] songs = GameObject.FindGameObjectsWithTag("Song");
+                    foreach (GameObject song in songs)
+                    {
+                        Items item = song.GetComponent<Items>();
+                        if (item != null && item.ID == LaneID)
+                        {
+                            item.gameFailed(); // this calls MoveToNewSpawnPoint
+                            break;
+                        }
+                    }
+                }
             }
             yield return new WaitForSeconds(2f);
             GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");

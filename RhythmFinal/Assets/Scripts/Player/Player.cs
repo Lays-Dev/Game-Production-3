@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     Animator animator;
 
-
+    public Items itemObject;
 
         
 
