@@ -59,7 +59,7 @@ public class RandomGen : MonoBehaviour
             spawned.Add(selectedPoint);
             spawnCount++;
 
-            Instantiate(pickedSong, selectedPoint.transform.position, Quaternion.Euler(-90, 0, 0));
+            Instantiate(pickedSong, selectedPoint.transform.position, Quaternion.Euler(-90, selectedPoint.transform.rotation.eulerAngles.y, selectedPoint.transform.rotation.eulerAngles.z));
             yield return new WaitForSeconds(.2f);
         }
     }

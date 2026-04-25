@@ -14,6 +14,10 @@ public class Items : MonoBehaviour
     public int ID;
     bool canBeInteractedWith = true;
     public RandomGen spawner;
+    public Camera minigameCamera;
+    public GameObject fadeIn;
+    public GameObject TeleportSpot;
+    public GameObject Item;
 
     public bool startsRhythmGame;
     
@@ -21,20 +25,34 @@ public class Items : MonoBehaviour
     {
         Player player = GameObject.FindFirstObjectByType<Player>();
 
-        if (player != null)
+        if (player != null) //This locks player movement
         {
             player.inRhythmGame = true;
             player.controlLock = true;
         }
-        
-        GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity);
+        Animator FadeIn = GameObject.FindWithTag("FadeInGuy").gameObject.GetComponent<Animator>();
+
+        FadeIn.SetTrigger("FadeIn");
+        StartCoroutine(RhythmStart());
+       
+    }
+    public IEnumerator RhythmStart()
+    {
+        yield return new WaitForSeconds(.3f); // Wait for the fade-in animation to complete
+        worldUI.SetActive(false);
+        Player player = GameObject.FindFirstObjectByType<Player>();
+        player.transform.position = TeleportSpot.transform.position; // Teleport the player to the rhythm game area
+        player.transform.LookAt(Item.transform.position); // Make the player look at the rhythm game
+        GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity); //This is what spawns our selected rhythm game
         Lane lane = spawned.GetComponentInChildren<Lane>();
+        minigameCamera.gameObject.SetActive(true);
         if (lane != null)
         {
             lane.LaneID = ID;
         }
-    }
+        
 
+    }
     public void Start()
     {
         spawner = FindAnyObjectByType<RandomGen>();
@@ -53,6 +71,7 @@ public class Items : MonoBehaviour
     {
         worldUI.SetActive(false);
         canBeInteractedWith = false;
+        minigameCamera.gameObject.SetActive(false);
 
         // Remove the spawn point that matches this item's position
         GameObject pointToRemove = null;
@@ -73,6 +92,7 @@ public class Items : MonoBehaviour
     public void gameFailed()
     {
         spawner.MoveToNewSpawnPoint(this.gameObject);
+        minigameCamera.gameObject.SetActive(false);
     }
 
     public void OnTriggerExit(Collider other)

@@ -13,6 +13,7 @@ TagManager:
   - BackgroundMusic
   - WinScreen
   - Minigame Song
+  - FadeInGuy
   layers:
   - Default
   - TransparentFX
