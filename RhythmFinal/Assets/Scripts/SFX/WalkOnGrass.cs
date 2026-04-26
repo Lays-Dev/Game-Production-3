@@ -1,29 +1,23 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WalkOnGrass : MonoBehaviour
 {
-    public AudioClip walkOnGrassSFX;
-    private Player playerMovement;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        playerMovement = GetComponent<Player>();
-        StartCoroutine(walkOnGrass());
-    }
+    private AudioClip currentSFX;
+    public Player playerMovement;
 
-    IEnumerator walkOnGrass()
+
+    public List<AudioClip> footstepSounds; // List of footstep sounds to choose from
+
+    public void Footstep()
     {
-        while(true)
+        if(playerMovement.movementInput.magnitude > 0.1f) // checks if player is moving
         {
-            if(playerMovement.movementInput.magnitude > 0.1f) // checks if player is moving
-            {
-                AudioManager.instance.PlaySFX(walkOnGrassSFX); // plays the sound effect at half volume
-            }
-
-            yield return new WaitForSeconds(0.5f); // waits for 0.5 seconds before checking again, adjust as needed for desired frequency of sound effect
+            currentSFX = footstepSounds[Random.Range(0, footstepSounds.Count)]; // randomly selects a footstep sound from the list
+            AudioManager.instance.PlaySFX(currentSFX); // plays the sound effect at half volume
         }
-    }
 
+    }
    
 }
