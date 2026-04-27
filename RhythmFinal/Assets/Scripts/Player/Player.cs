@@ -38,6 +38,12 @@ public class Player : MonoBehaviour
     [Header("HitNote")]
     public bool hitNotePressed = false;
 
+    [Header("Sky Box & Level Changer")]
+    public SkyBoxChanger skyBoxChanger; // Reference to the SkyBoxChanger script to change skyboxes
+    public DoorManager doorManager; // Reference to the DoorManager script to change scenes
+    public bool doorInRange = false; // To track if the player is in range of a door
+    public bool skyBoxChangerInRange = false; // To track if the player is in range of a skybox changer
+
 
 
     [Header("Layers")]
@@ -97,6 +103,18 @@ public class Player : MonoBehaviour
             // Code to interact with quest board
             Debug.Log("Interacted with Quest Board");
             currentQuestBoard.openBoard(this);
+        }
+
+        if (skyBoxChanger != null && skyBoxChangerInRange)
+        {
+            skyBoxChanger.ChangeSkybox();
+            return;
+        }
+
+        if (doorManager != null && doorInRange)
+        {
+            doorManager.EnterLevel();
+            return;
         }
 
         
@@ -179,6 +197,20 @@ public class Player : MonoBehaviour
             currentQuestBoard = other.GetComponent<QuestBoard>();
             isinteractable = true; 
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("SkyboxChanger"))
+        {
+            skyBoxChanger = other.GetComponent<SkyBoxChanger>();
+            skyBoxChangerInRange = true; // this and door have different bools due to issues with the interaction system
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
+        {
+            doorManager = other.GetComponent<DoorManager>();
+            doorInRange = true;
+        }
+
+        
     }
 
     private void OnTriggerExit(Collider other) // system to remove items from list of ones that can be picked up
@@ -197,6 +229,18 @@ public class Player : MonoBehaviour
         {
             currentQuestBoard = null;
             isinteractable = false; 
+        }
+
+        if(other.gameObject.layer == LayerMask.NameToLayer("SkyboxChanger"))
+        {
+            skyBoxChanger = null;
+            skyBoxChangerInRange = false;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Door"))
+        {
+            doorManager = null;
+            doorInRange = false;
         }
     }
 

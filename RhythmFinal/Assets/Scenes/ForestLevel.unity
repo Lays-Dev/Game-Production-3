@@ -36448,7 +36448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 10a81433ef4c21c41aa1df7ba33b34d4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 10a81433ef4c21c41aa1df7ba33b34d4, type: 3}
       propertyPath: m_Controller
@@ -42685,7 +42685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f378d31bfc72ecf48b220ab8e2b05b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkOnGrassSFX: {fileID: 8300000, guid: 4042f99ba99d6274d9a660d6a91e74ab, type: 3}
+  playerMovement: {fileID: 0}
+  footstepSounds: []
 --- !u!4 &1874090502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7842824136013500847, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
