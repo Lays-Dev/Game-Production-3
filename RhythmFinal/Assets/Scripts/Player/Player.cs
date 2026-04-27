@@ -16,28 +16,11 @@ public class Player : MonoBehaviour
     public GameObject RhythmPrefab;
     public CinemachineCamera playerCamera; // Reference to the player's main camera
 
+    
+
     public float Distance = 5f; // Distance for raycasting to detect items
 
-    public Transform cameraTransform; // Reference to the camera's transform for movement direction
-
-    //---------------------------------------------------------------------------
-    //Testing!!!!
-
-    [Header("Movement Tuning")]
-    public float minMoveSpeed = 2f;
-    public float maxMoveSpeed = 6f;
-    private float currentInputAmount; // smoothed value
-    private float inputVelocity; // used for smoothing
-
-    [Header("Animation Tuning")]
-    public float minAnimSpeed = 0f;
-    public float maxAnimSpeed = 1f;
-
-    [Header("Acceleration")]
-    public float accelerationTime = 0.3f; // time to go from min → max
-    public float decelerationTime = 0.2f; // optional, for slowing down
-
-    //---------------------------------------------------------------------------
+    public Transform currentCameraTransform; // Reference to the camera's transform for movement direction
 
     [Header("Colliders")]
     public Collider DetectionBox; // Collider for detecting items
@@ -236,6 +219,11 @@ public class Player : MonoBehaviour
 
         animator = GetComponentInChildren<Animator>();
 
+        if (currentCameraTransform == null)
+        {
+            currentCameraTransform = Camera.main.transform;
+        }
+
     }
 
     void FixedUpdate ()
@@ -246,37 +234,17 @@ public class Player : MonoBehaviour
         
         // to make movement based on camera
         // grabs camera movements
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
+        Vector3 forward = currentCameraTransform.forward;
+        Vector3 right = currentCameraTransform.right;
 
         forward.y = 0f;
         right.y = 0f;
 
-        // normalizes the movement
-        float targetInput = Mathf.Clamp01(movementInput.magnitude);
-
-        // choose correct time
-        float time = targetInput > currentInputAmount ? accelerationTime : decelerationTime;
-
-        // avoid divide by zero
-        if (time <= 0f) time = 0.0001f;
-
-        // calculate how fast we should move per second
-        float rate = 1f / time;
-
-        // move toward target at a constant rate
-        currentInputAmount = Mathf.MoveTowards(
-            currentInputAmount,
-            targetInput,
-            rate * Time.fixedDeltaTime
-        );
         
         // Build movement direction relative to camera
         Vector3 movement = forward * movementInput.y + right * movementInput.x;
 
-        float currentSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, currentInputAmount);
-
-        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * Speed * Time.fixedDeltaTime);
 
         //makes character rotate to movement direction
         if (movement != Vector3.zero)
@@ -297,20 +265,11 @@ public class Player : MonoBehaviour
     {
         
 
-        float animValue = Mathf.Lerp(minAnimSpeed, maxAnimSpeed, currentInputAmount);
+        // animator settings
+        float speed = movementInput.magnitude; 
+        animator.SetFloat("Speed", speed);
 
-        // kill animation if basically not moving
-        if (currentInputAmount < 0.01f)
-        {
-            animValue = 0f;
-        }
-        else
-        {
-            animator.speed = animValue; // adjust animation speed based on movement speed
-        }
 
-        animator.SetFloat("Speed", animValue);
-        
 
     }
 }
