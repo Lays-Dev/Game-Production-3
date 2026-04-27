@@ -1,0 +1,102 @@
+using System.Collections;
+using TMPro;
+using UnityEngine;
+
+public class QuestTest : MonoBehaviour
+{
+    public TextMeshProUGUI QuestText;
+    public int itemsCollected;
+    public GameObject Spawner;
+    public TextMeshProUGUI QuestTitle;
+    public bool hasBeenCollected;
+    public GameObject TreeWall;
+    public bool inTutorial;
+    public bool forestQuestActive;
+    public bool caveQuestActive;
+    public bool desertQuestActive;
+
+    void Start()
+    {
+        //Get quest title from GameManager
+        RandomGen Spawner = this.GetComponent<RandomGen>();
+        if (inTutorial)
+        {
+            QuestTitle.text = "Tutorial";
+        }
+        if (forestQuestActive)
+        {
+            QuestTitle.text = "Song of the Caged Bird";
+        }
+        if (caveQuestActive)
+        {
+            QuestTitle.text = "Song of the Caged Bird";
+        }
+        if (desertQuestActive)
+        {
+            QuestTitle.text = "Song of the Caged Bird";
+        }
+        // Load quest progress
+        itemsCollected = (int)GameManager.instance.questItemsCollected;
+        if (forestQuestActive)
+        {
+            if (GameManager.instance.questCompleted)
+            {
+                TreeWall = GameObject.FindWithTag("TreeWall");
+                TreeWall.SetActive(false);
+            }
+        }
+
+        // Respawn minigames based on remaining items
+        if (Spawner != null)
+            StartCoroutine(Spawner.SpawnRandomSong());
+    }
+
+    public IEnumerator collectItem()
+    {
+        //Check if the item has already been collectedm
+        if (hasBeenCollected == false)
+        {
+            itemsCollected++;
+            hasBeenCollected = true;
+
+            //Save progress after collecting an item
+            GameManager.instance.questItemsCollected = itemsCollected;
+            if (itemsCollected >= 3)
+                GameManager.instance.questCompleted = true;
+            GameManager.instance.SaveGame();
+        }
+
+        yield return new WaitForSeconds(0.4f);
+        hasBeenCollected = false;
+        if (forestQuestActive)
+        {
+            if (itemsCollected == 3)
+            {
+                TreeWall = GameObject.FindWithTag("TreeWall");
+                TreeWall.SetActive(false);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (inTutorial)
+        {
+            if (itemsCollected >= 1)
+                QuestText.text = "Go Practice Your Form on The Anvil";
+            else
+            {
+                QuestText.text = "Find Your Blacksmith Manual";
+            }
+            
+            
+        }
+        if(forestQuestActive)
+        {
+            if (itemsCollected == 3)
+                QuestText.text = "Go Speak To The Elder";
+            else
+                QuestText.text = "Collect " + itemsCollected + "/3 Enchanted Planks";
+        }
+    }
+}

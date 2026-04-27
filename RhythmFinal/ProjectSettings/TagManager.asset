@@ -14,11 +14,13 @@ TagManager:
   - WinScreen
   - Minigame Song
   - FadeInGuy
+  - RhythmGameCanvas
+  - TreeWall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Volume
   - Water
   - UI
   - 
@@ -31,7 +33,7 @@ TagManager:
   - Violin
   - 
   - 
-  - 
+  - Outline
   - 
   - 
   - 

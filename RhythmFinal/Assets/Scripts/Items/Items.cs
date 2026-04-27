@@ -43,6 +43,7 @@ public class Items : MonoBehaviour
         Player player = GameObject.FindFirstObjectByType<Player>();
         player.transform.position = TeleportSpot.transform.position; // Teleport the player to the rhythm game area
         player.transform.LookAt(Item.transform.position); // Make the player look at the rhythm game
+        player.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, 0); // 
         GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity); //This is what spawns our selected rhythm game
         Lane lane = spawned.GetComponentInChildren<Lane>();
         minigameCamera.gameObject.SetActive(true);
