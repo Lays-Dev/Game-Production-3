@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DialAndSwitch
+  m_Name: Lever
   m_Shader: {fileID: -6465566751694194690, guid: b99265c667661434cb1909c9f54c2403, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: 7dcfed127b23ff843a2a5054e064033d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1006a28dd6fed6849a6bd115eaf9588d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
