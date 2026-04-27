@@ -45,7 +45,7 @@ AnimatorStateMachine:
     m_Position: {x: -350, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 937445589236318818}
-    m_Position: {x: -160, y: 70, z: 0}
+    m_Position: {x: -140, y: 80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -4719130354355083144}
@@ -192,7 +192,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk_Loop
-  m_Speed: 1
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8365093094429555748}
