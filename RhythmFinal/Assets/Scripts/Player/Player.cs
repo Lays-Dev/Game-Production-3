@@ -16,9 +16,11 @@ public class Player : MonoBehaviour
     public GameObject RhythmPrefab;
     public CinemachineCamera playerCamera; // Reference to the player's main camera
 
+    
+
     public float Distance = 5f; // Distance for raycasting to detect items
 
-    public Transform cameraTransform; // Reference to the camera's transform for movement direction
+    public Transform currentCameraTransform; // Reference to the camera's transform for movement direction
 
     //---------------------------------------------------------------------------
     //Testing!!!!
@@ -236,6 +238,11 @@ public class Player : MonoBehaviour
 
         animator = GetComponentInChildren<Animator>();
 
+        if (currentCameraTransform == null)
+        {
+            currentCameraTransform = Camera.main.transform;
+        }
+
     }
 
     void FixedUpdate ()
@@ -246,8 +253,8 @@ public class Player : MonoBehaviour
         
         // to make movement based on camera
         // grabs camera movements
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
+        Vector3 forward = currentCameraTransform.forward;
+        Vector3 right = currentCameraTransform.right;
 
         forward.y = 0f;
         right.y = 0f;
