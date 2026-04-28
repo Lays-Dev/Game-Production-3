@@ -766,10 +766,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: " Lays Perez\n\n\tElias Baranski\n\t\t Tino Martinez\n\t\t   Camille Holliday\n\tJuan
-    Martinez \n\n\tJuan Martinez, Tino Martinez,  Xavier Rosario \n\n\t\t Nelson
-    Garcia Figueroa, Tino Martinez, Juan Martinez, Florencia Orzejovsky, \n\t\t Camille
-    Holliday\n\nLindsay, Jose, Nelson Garcia Figueroa, Paige Hemlak, Elias Baranski,
-    Florencia Orzejovsky, \nLindsay Chong, Jose Signani"
+    Martinez \n\n\tJuan Martinez, Tino Martinez,  Xavier Rosario, Lays Perez\n\n\t\t
+    Nelson Garcia Figueroa, Tino Martinez, Juan Martinez, Florencia Orzejovsky,\n\t\t
+    Camille Holliday, Lays Perez\n\nNelson Garcia Figueroa, Paige Hemlak, Elias Baranski,
+    Florencia Orzejovsky, Lays Perez\nLindsay Chong, Jose Signani"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be1ad0eb34595d646bfb4861460d0f48, type: 2}
   m_sharedMaterial: {fileID: 6745472581918361520, guid: be1ad0eb34595d646bfb4861460d0f48, type: 2}
@@ -1874,7 +1874,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 581b10c2178a37d418c96822e8c56090, type: 2}
+      objectReference: {fileID: 9100000, guid: 54b1c14d275c96a45be158c5abbbbf68, type: 2}
     - target: {fileID: 5866666021909216657, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
       propertyPath: m_AnimatePhysics
       value: 0
@@ -2368,6 +2368,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1767662844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767662845}
+  m_Layer: 0
+  m_Name: Immortal GameObject
+  m_TagString: immortality
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767662845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767662844}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.931137, y: 4.299454, z: -4.659339}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2100991232}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770458504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,7 +2570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289.94528, y: 56.11837}
+  m_AnchoredPosition: {x: 607.9498, y: 28.059147}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1801149695
@@ -2642,7 +2674,7 @@ GameObject:
   - component: {fileID: 2100991231}
   m_Layer: 0
   m_Name: Button Click SFX
-  m_TagString: Untagged
+  m_TagString: immortality
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2752,12 +2784,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100991230}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.747046, y: -11.432195, z: 23.783796}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1840916, y: -15.731649, z: 28.443134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1767662845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2766,5 +2798,5 @@ SceneRoots:
   - {fileID: 294315125}
   - {fileID: 569984246}
   - {fileID: 1937598207}
-  - {fileID: 2100991232}
   - {fileID: 1168494746}
+  - {fileID: 1767662845}
