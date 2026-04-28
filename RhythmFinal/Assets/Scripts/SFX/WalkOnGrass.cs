@@ -4,20 +4,28 @@ using System.Collections.Generic;
 
 public class WalkOnGrass : MonoBehaviour
 {
-    private AudioClip currentSFX;
+    private FootstepSound currentSFX;
     public Player playerMovement;
+    [System.Serializable]
+    public struct FootstepSound
+    {
+        public AudioClip sound;
+        public float volume;
+    }
 
-
-    public List<AudioClip> footstepSounds; // List of footstep sounds to choose from
+    public List<FootstepSound> footstepSounds; // List of footstep sounds to choose from
 
     public void Footstep()
     {
-        if(playerMovement.movementInput.magnitude > 0.1f) // checks if player is moving
+        if (playerMovement.movementInput.magnitude > 0.1f)
         {
-            currentSFX = footstepSounds[Random.Range(0, footstepSounds.Count)]; // randomly selects a footstep sound from the list
-            AudioManager.instance.PlaySFX(currentSFX); // plays the sound effect at half volume
+            currentSFX = RandomSFX(footstepSounds);
+            AudioManager.instance.PlaySFX(currentSFX.sound, currentSFX.volume);
         }
-
     }
-   
+
+    private FootstepSound RandomSFX(List<FootstepSound> sounds)
+    {
+        return sounds[Random.Range(0, sounds.Count)];
+    }
 }
