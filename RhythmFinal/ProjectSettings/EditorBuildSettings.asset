@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Tutorial Menu.unity
     guid: 6cb183811dc222e44833e6a57aa72cb8
   - enabled: 1
-    path: Assets/Scenes/ForestLevel.unity
-    guid: 5c0e1304ae3f34b4789cb658ebe7a7e3
-  - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 1b81b129d76956e4189a96dda6e2491a
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel.unity
+    guid: 5c0e1304ae3f34b4789cb658ebe7a7e3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
