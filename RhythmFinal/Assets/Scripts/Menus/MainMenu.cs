@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     // PlayGame is for the button to start the game
     public void PlayGame()
     {
@@ -29,11 +30,12 @@ public class MainMenu : MonoBehaviour
         public void LoadMainMenu()
     {
         Debug.Log("Loading the main menu");
-        Time.timeScale = 1f; // Ensure the game is unpaused before quitting
-        AudioListener.pause = false; // Unpause audio before quitting
-        Cursor.visible = true; // Show the cursor before quitting
-        Cursor.lockState = CursorLockMode.None; // Unlock the cursor before quitting
         SceneManager.LoadScene(0); // Load the main menu scene 
+    }
+
+    public void CreditsMenu()
+    {
+        SceneManager.LoadSceneAsync(4);
     }
     
 }

@@ -2899,7 +2899,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 954195536}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: CreditsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
