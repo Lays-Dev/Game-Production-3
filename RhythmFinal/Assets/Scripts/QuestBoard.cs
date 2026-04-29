@@ -11,9 +11,20 @@ public class QuestBoard : MonoBehaviour
 
     public bool isOpen = false; // To track if the quest board is open or not
 
+    public QuestTest questTest;
 
-    
-    
+    [Header("Models")]
+    public QuestModelHighlight quest1;
+    public QuestModelHighlight quest2;
+    public QuestModelHighlight quest3;
+
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+
+    private GameObject lastSelected;
+
+
     public void openBoard(Player player)
     {
         isOpen = true;
@@ -29,7 +40,9 @@ public class QuestBoard : MonoBehaviour
         player.playerCamera.gameObject.SetActive(false); // Deactivate the player's main camera
         
 
-        questBoardUI.SetActive(true); // Show the quest board UI
+        questBoardUI.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstSelectedButton);
         
     }
@@ -51,6 +64,21 @@ public class QuestBoard : MonoBehaviour
         questBoardUI.SetActive(false); // Hide the quest board UI
     }
 
+    public void QuestOne()
+    {
+        questTest.currentQuest = 0;
+    }
+
+    public void QuestTwo()
+    {
+        questTest.currentQuest = 1;
+    }
+
+    public void QuestThree()
+    {
+        questTest.currentQuest = 2;
+    }
+    
     void Start()
     {
         
@@ -69,5 +97,29 @@ public class QuestBoard : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(firstSelectedButton);
             }
         }
+
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+
+        lastSelected = selected;
+        
+        quest1.SetSelected(false);
+        quest2.SetSelected(false);
+        quest3.SetSelected(false);
+
+
+        if (selected == button1)
+        {
+            quest1.SetSelected(true);
+        }
+        else if (selected == button2)
+        {
+            quest2.SetSelected(true);
+        }
+        else if (selected == button3)
+        {
+            quest3.SetSelected(true);
+        }
+
+        
     }
 }
