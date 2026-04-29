@@ -91,7 +91,7 @@ public class QuestBoard : MonoBehaviour
         
         if(questBoardUI.activeSelf)
         {
-            if (EventSystem.current.currentSelectedGameObject == null && (Keyboard.current.anyKey.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame))
+            if (EventSystem.current.currentSelectedGameObject == null)
             {
                 // basically if no selected object in UI and any key/ gamepad button is pressed, set it to the first button.
                 EventSystem.current.SetSelectedGameObject(firstSelectedButton);

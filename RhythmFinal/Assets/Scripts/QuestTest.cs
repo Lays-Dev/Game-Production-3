@@ -17,11 +17,13 @@ public class QuestTest : MonoBehaviour
     public void StartQuest(int questID)
     {
         currentQuest = questID;
+        GameManager.instance.activeQuest = questID;
+
         itemsCollected = 0;
 
         questUI.SetActive(true); // Show the quest UI
 
-        switch (questID)
+        switch (currentQuest)
         {
             case 0:
                 QuestTitle.text = "Song of the Caged Bird";
@@ -32,15 +34,38 @@ public class QuestTest : MonoBehaviour
             case 2:
                 QuestTitle.text = "The Pink Phantom";
                 break;
+            
+            default:
+                QuestTitle.text = "";
+                break;
         }
 
     }
 
     void Start()
     {
+        currentQuest = GameManager.instance.activeQuest;
+        switch (currentQuest)
+        {
+            case 0:
+                QuestTitle.text = "Song of the Caged Bird";
+                break;
+
+            case 1:
+                QuestTitle.text = "Tomorrow's Dust";
+                break;
+
+            case 2:
+                QuestTitle.text = "The Pink Phantom";
+                break;
+
+            default:
+                QuestTitle.text = "";
+                break;
+        }
+        
         //Get quest title from GameManager
         RandomGen Spawner = this.GetComponent<RandomGen>();
-        QuestTitle.text = "";
 
         // Load quest progress
         itemsCollected = (int)GameManager.instance.questItemsCollected;
