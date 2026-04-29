@@ -772,28 +772,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7a92a136-76fc-4890-9084-9eed703254f1",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5c244966-5c57-41b6-9332-c62df90fe7ce",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "99a5db7e-bcc1-43bf-978a-fdf7484aa934",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -910,34 +888,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Inspect",
-            "id": "db811075-2ffe-4465-b13a-b493ea9b48e5",
-            "actions": [
-                {
-                    "name": "Zoom",
-                    "type": "Button",
-                    "id": "b2750bea-0f00-4a26-8e58-4c5faf03ffdb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "48cf86af-c688-4c9d-8230-e79cf1672d70",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
