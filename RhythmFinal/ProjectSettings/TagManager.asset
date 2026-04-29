@@ -14,6 +14,7 @@ TagManager:
   - WinScreen
   - Minigame Song
   - FadeInGuy
+  - immortality
   layers:
   - Default
   - TransparentFX
