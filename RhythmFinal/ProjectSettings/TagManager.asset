@@ -15,6 +15,7 @@ TagManager:
   - Minigame Song
   - FadeInGuy
   - immortality
+  - BossCamera
   layers:
   - Default
   - TransparentFX
