@@ -15,6 +15,7 @@ public static class SaveSystem
         // Quest data
         data.questItemsCollected   = manager.questItemsCollected;
         data.questCompleted        = manager.questCompleted;
+        data.tutorialCompleted     = manager.tutorialCompleted;
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);

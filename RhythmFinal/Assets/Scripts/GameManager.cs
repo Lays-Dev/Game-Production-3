@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public float questItemsCollected;
     public bool questCompleted;
 
+    [Header("Tutorial")]
+    public bool tutorialCompleted;
     void Awake()
     {
         if (instance == null)
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
         // Quest data
         questItemsCollected = data.questItemsCollected;
         questCompleted = data.questCompleted;
+        tutorialCompleted = data.tutorialCompleted;
 
         Debug.Log("Game Loaded Successfully");
     }

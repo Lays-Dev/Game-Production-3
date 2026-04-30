@@ -9,7 +9,8 @@ public class LaneMulti : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public InputAction RhythmButton;
     public GameObject notePrefab;
-    
+    public bool finalScreen;
+
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
     
@@ -44,13 +45,11 @@ public class LaneMulti : MonoBehaviour
     {
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
-        GameObject questTestPrefab = GameObject.FindWithTag("UI");
-        questTestPrefab.GetComponent<Canvas>().enabled = false;
+        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        if (BackgroundMusic != null)
-            BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
+        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
         
-        
+        questTestPrefab.GetComponent<Canvas>().enabled = false;
     }
 
     void Update()
@@ -77,18 +76,17 @@ public class LaneMulti : MonoBehaviour
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
         yield return new WaitForSeconds(6f);
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        if (BackgroundMusic != null)
-        
-        {
-            BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
-        }
+        BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
         GameObject Player = GameObject.FindWithTag("Player");
         Player.GetComponent<InspectObject>().enabled = true;
-        GameObject WinScreen = GameObject.FindWithTag("WinScreen");
-        WinScreen.GetComponent<ExitToMainMenu>().enabled = true;
-        WinScreen.GetComponent<Canvas>().enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (finalScreen)
+        {
+            GameObject WinScreen = GameObject.FindWithTag("WinScreen"); //This is in case we want to open a win screen
+            WinScreen.GetComponent<ExitToMainMenu>().enabled = true;
+            WinScreen.GetComponent<Canvas>().enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         
         Destroy(RhythmGame);
     }
