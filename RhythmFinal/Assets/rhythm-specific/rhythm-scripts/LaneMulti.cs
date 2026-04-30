@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LaneMulti : MonoBehaviour
 {
@@ -91,6 +92,9 @@ public class LaneMulti : MonoBehaviour
         Cursor.visible = true;
         
         Destroy(RhythmGame);
+
+        SceneManager.LoadScene("TutorialLevel");
+
     }
 
 }
