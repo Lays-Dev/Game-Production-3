@@ -223,7 +223,17 @@ public class Player : MonoBehaviour
         hitNotePressed = true;
     }
 
+    public void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
+    public void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     
 
 
@@ -239,6 +249,8 @@ public class Player : MonoBehaviour
         {
             currentCameraTransform = Camera.main.transform;
         }
+
+        LockMouse();
 
     }
 

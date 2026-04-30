@@ -33,7 +33,8 @@ public class QuestBoard : MonoBehaviour
         Debug.Log("Quest Board Opened");
 
         player.controlLock = true; // Lock player controls
-        Cursor.lockState = CursorLockMode.None;
+        player.UnlockMouse();
+        
         Cursor.visible = true;
 
         QuestBoardCamera.gameObject.SetActive(true); // Activate the quest board camera
@@ -55,7 +56,7 @@ public class QuestBoard : MonoBehaviour
         Debug.Log("Quest Board Closed");
 
         player.controlLock = false; // Unlock player controls
-        Cursor.lockState = CursorLockMode.Locked;
+        player.LockMouse();
         Cursor.visible = false;
 
         QuestBoardCamera.gameObject.SetActive(false); // Deactivate the quest board camera
