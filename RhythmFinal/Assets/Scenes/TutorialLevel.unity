@@ -671,14 +671,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2538171672645016055, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 2471921144409194644, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 80ef95ae0f7bf504cbb3aedc6b7fcf99, type: 2}
+    - target: {fileID: 2538171672645016055, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2870950618209487065, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -872,10 +872,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2538171672645016055, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 228761733}
+      addedObject: {fileID: 228761737}
     - targetCorrespondingSourceObject: {fileID: 2538171672645016055, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 228761737}
+      addedObject: {fileID: 946891785}
     - targetCorrespondingSourceObject: {fileID: 7199206215327136768, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 741852894}
@@ -911,28 +911,26 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228761732}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9f700531d8d40468387b4043178798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questBoardUI: {fileID: 1270272385}
-  QuestBoardCamera: {fileID: 297875807}
-  firstSelectedButton: {fileID: 1580056475}
-  isOpen: 0
-  questTest: {fileID: 958858100}
-  quest1: {fileID: 1996989638}
-  quest2: {fileID: 305662423}
-  quest3: {fileID: 2140812545}
-  button1: {fileID: 1580056475}
-  button2: {fileID: 1473547503}
-  button3: {fileID: 1353044913}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &228761737
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228761732}
+  m_GameObject: {fileID: 946891783}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -947,19 +945,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.88857853, y: 0.05439128, z: 0.794428}
   m_Center: {x: -0.0000019073486, y: -0.0071956404, z: 0.4}
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9315eb17ed015e4cbaf3345d911a5cc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!43 &235819615
 Mesh:
   m_ObjectHideFlags: 0
@@ -6782,6 +6767,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917829331}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &946891783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2538171672645016055, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
+  m_PrefabInstance: {fileID: 228761730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &946891785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946891783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9f700531d8d40468387b4043178798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questBoardUI: {fileID: 1270272385}
+  QuestBoardCamera: {fileID: 297875807}
+  firstSelectedButton: {fileID: 1580056475}
+  isOpen: 0
+  questTest: {fileID: 958858100}
+  quest1: {fileID: 1996989638}
+  quest2: {fileID: 305662423}
+  quest3: {fileID: 2140812545}
+  button1: {fileID: 1580056475}
+  button2: {fileID: 1473547503}
+  button3: {fileID: 1353044913}
 --- !u!1001 &958564330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7746,6 +7759,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6d45eea04044cba4fabd763ac91f8905, type: 2}
   - {fileID: 2100000, guid: 68217d4f64a2e6b4289135686d33d6aa, type: 2}
   sceneIndex: 0
+  DialCamera: {fileID: 228761732}
+  DialUI: {fileID: 0}
+  Player: {fileID: 0}
+  resetLever: {fileID: 0}
 --- !u!65 &1092830273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10422,7 +10439,7 @@ PrefabInstance:
     - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: currentQuestBoard
       value: 
-      objectReference: {fileID: 228761733}
+      objectReference: {fileID: 946891785}
     - target: {fileID: 8406575800065476332, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: DefaultBlend.Style
       value: 0
