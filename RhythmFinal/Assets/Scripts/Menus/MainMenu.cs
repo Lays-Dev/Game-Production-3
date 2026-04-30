@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     // PlayGame is for the button to start the game
     public void PlayGame()
     {
@@ -24,6 +25,17 @@ public class MainMenu : MonoBehaviour
     {
         // Async loads the game per frame and doesn't freeze the UI while loading
         SceneManager.LoadSceneAsync(1);
+    }
+
+        public void LoadMainMenu()
+    {
+        Debug.Log("Loading the main menu");
+        SceneManager.LoadScene(0); // Load the main menu scene 
+    }
+
+    public void CreditsMenu()
+    {
+        SceneManager.LoadSceneAsync(4);
     }
     
 }
