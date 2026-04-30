@@ -10,12 +10,12 @@ public class AudioManager : MonoBehaviour
         instance = this;
     }
 
-    public void PlaySFX(AudioClip audioClip, float volume = 1f)
+    public void PlaySFX(AudioClip audioClip, float volume = .3f)
     {
         StartCoroutine(PlaySFXCoroutine(audioClip, volume));
     }
 
-    IEnumerator PlaySFXCoroutine(AudioClip audioClip, float volume = 1f)
+    IEnumerator PlaySFXCoroutine(AudioClip audioClip, float volume = .3f)
     {
         AudioSource audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = audioClip;
