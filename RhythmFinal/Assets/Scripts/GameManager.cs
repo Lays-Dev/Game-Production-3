@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     public float questItemsCollected;
     public bool questCompleted;
 
-    public int activeQuest = -1;
-
     void Awake()
     {
         if (instance == null)

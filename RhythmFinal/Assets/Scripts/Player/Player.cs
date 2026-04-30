@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
 
         if (skyBoxChanger != null && skyBoxChangerInRange)
         {
-            skyBoxChanger.ChangeSkybox();
+            skyBoxChanger.enableCamera();
             return;
         }
 

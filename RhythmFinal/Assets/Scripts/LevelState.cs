@@ -13,8 +13,7 @@ public class LevelState : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // This makes sure the LevelState object isn't destroyed when loading a new scene
+            Instance = this;   
         }
         else
         {
