@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/Credits.unity
     guid: e6e0ad5b79eda99499db7a7f57f61d0b
+  - enabled: 1
+    path: Assets/Scenes/Desert Level.unity
+    guid: f94668a28e8e2954cae1d75ea8163113
+  - enabled: 1
+    path: Assets/Scenes/IceLevel.unity
+    guid: a1c0e59a1b7108845835e893302e2d9a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
