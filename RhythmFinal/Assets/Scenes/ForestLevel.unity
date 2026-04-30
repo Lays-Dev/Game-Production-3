@@ -9565,6 +9565,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.8141999
       objectReference: {fileID: 0}
+    - target: {fileID: 3223748634981635549, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: Violin
+      value: 
+      objectReference: {fileID: 1861695881782303253}
     - target: {fileID: 3293034619464172862, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9581,6 +9585,10 @@ PrefabInstance:
       propertyPath: Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: itemObject
+      value: 
+      objectReference: {fileID: 1951714859983456816}
     - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: dashDuration
       value: 0.5
@@ -9667,6 +9675,7 @@ PrefabInstance:
       objectReference: {fileID: 933233944}
     m_RemovedComponents:
     - {fileID: 689550494003634106, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+    - {fileID: 5769335547653313464, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7842824136013500847, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
@@ -9676,9 +9685,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8782790171606273338, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1874090501}
-    - targetCorrespondingSourceObject: {fileID: 8782790171606273338, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1874090503}
     - targetCorrespondingSourceObject: {fileID: 3293034619464172862, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 467261461}
@@ -42729,17 +42735,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1870370503 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5130988368997692974, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
-  m_PrefabInstance: {fileID: 467261459}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1873879385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9055229508385292914, guid: 060a6aa98e36af145815911c48344846, type: 3}
@@ -42773,36 +42768,6 @@ MonoBehaviour:
 --- !u!4 &1874090502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7842824136013500847, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
-  m_PrefabInstance: {fileID: 467261459}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1874090503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195476841}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81a020c590668c48b0881a511f23553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inspectLayer:
-    serializedVersion: 2
-    m_Bits: 8192
-  inspectDistance: 2
-  minDistance: 1
-  maxDistance: 4
-  scrollSpeed: 8
-  rotationSensitivity: 0.005
-  rotationDamping: 3
-  raycastCapsule: {fileID: 1874090504}
-  inputAxisController: {fileID: 1870370503}
-  rayDistance: 5
-  Violin: {fileID: 1861695881782303253}
---- !u!136 &1874090504 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 7234659814078861540, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
   m_PrefabInstance: {fileID: 467261459}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1875087773
@@ -48366,6 +48331,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1819779392663872926, guid: 6ffd222a0fb347e44a32e3ee903b7fb2, type: 3}
   m_PrefabInstance: {fileID: 4121678395099566731}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1951714859983456816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1375531366307846188, guid: 6ffd222a0fb347e44a32e3ee903b7fb2, type: 3}
+  m_PrefabInstance: {fileID: 4121678395099566731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae5d716ae2dcb2439a3efa4a2e8e967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1990686442753965876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49589,6 +49565,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1700677713036922339}
     m_Modifications:
     - target: {fileID: 1375531366307846188, guid: 6ffd222a0fb347e44a32e3ee903b7fb2, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 1861695881782303253}
+    - target: {fileID: 1375531366307846188, guid: 6ffd222a0fb347e44a32e3ee903b7fb2, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 154665689}
@@ -50216,8 +50196,8 @@ MonoBehaviour:
 
     "Song of A Caged Bird"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -51556,8 +51536,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You win!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

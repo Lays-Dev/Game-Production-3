@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LaneMulti : MonoBehaviour
 {
@@ -64,13 +65,9 @@ public class LaneMulti : MonoBehaviour
                 spawnIndex++;
             }
         }
-        if (spawnIndex >= timeStamps.Count)
-        {
-            StartCoroutine(EndSong());
-        }
 
     }
-    public System.Collections.IEnumerator EndSong()
+    /*public System.Collections.IEnumerator EndSong()
     {
         yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
@@ -90,6 +87,43 @@ public class LaneMulti : MonoBehaviour
         playerObject.GetComponent<Player>().inRhythmGame = false;
         playerObject.GetComponent<Player>().controlLock = false;
         Destroy(RhythmGame);
+
+        SceneManager.LoadScene("TutorialLevel");
+    }*/
+
+    public IEnumerator EndSong()
+    {
+        Debug.Log("EndSong started");
+
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => spawnIndex == timeStamps.Count);
+        yield return new WaitForSeconds(6f);
+
+        Debug.Log("Song finished");
+
+        GameObject bg = GameObject.FindWithTag("BackgroundMusic");
+        if (bg != null)
+            bg.GetComponent<AudioSource>().volume = 1f;
+
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            player.GetComponent<Player>().inRhythmGame = false;
+            player.GetComponent<Player>().controlLock = false;
+        }
+
+        GameObject bossCam = GameObject.FindWithTag("BossCamera");
+        if (bossCam != null)
+            bossCam.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (RhythmGame != null)
+            Destroy(RhythmGame);
+
+        Debug.Log("Loading TutorialLevel");
 
         SceneManager.LoadScene("TutorialLevel");
     }
