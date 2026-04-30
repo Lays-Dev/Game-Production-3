@@ -7759,10 +7759,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6d45eea04044cba4fabd763ac91f8905, type: 2}
   - {fileID: 2100000, guid: 68217d4f64a2e6b4289135686d33d6aa, type: 2}
   sceneIndex: 0
-  DialCamera: {fileID: 228761732}
-  DialUI: {fileID: 0}
-  Player: {fileID: 0}
-  resetLever: {fileID: 0}
 --- !u!65 &1092830273
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PanelAndDial : MonoBehaviour
 {
+    /*
     public GameObject Panel;
     public Animator DialAnimator;
     public AudioSource click;
@@ -49,4 +50,5 @@ public class PanelAndDial : MonoBehaviour
         yield return new WaitForSeconds(1f); // Wait for the animation to finish (adjust the time as needed)
         Panel.GetComponent<SkyBoxChanger>().disableCamera();
     }
+    */
 }
