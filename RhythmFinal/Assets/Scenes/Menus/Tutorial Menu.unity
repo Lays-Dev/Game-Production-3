@@ -282,8 +282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How To Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -15.2687, w: 0}
+  m_margin: {x: 0, y: 0, z: -227.16655, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -420,10 +420,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 0.8018867, b: 0.8907895, a: 1}
+    m_HighlightedColor: {r: 0.49537188, g: 0.7610062, b: 0.7445702, a: 1}
+    m_PressedColor: {r: 1, g: 0.8000001, b: 0.89019614, a: 1}
+    m_SelectedColor: {r: 0.49411768, g: 0.7607844, b: 0.74509805, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
 --- !u!114 &692632300
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 598259293}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &692632301
@@ -646,8 +646,8 @@ MonoBehaviour:
     must  gather the materials you need to convince The Great Elder to bestow it
     upon you.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1509,6 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3d8b95591fa7145bc4b5e5d6e8c0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstButton: {fileID: 598259293}
 --- !u!114 &2101724701
 MonoBehaviour:
   m_ObjectHideFlags: 0
