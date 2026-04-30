@@ -9548,6 +9548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player+Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
+      propertyPath: RunSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
+      propertyPath: currentQuestBoard
+      value: 
+      objectReference: {fileID: 228761733}
     - target: {fileID: 8406575800065476332, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: DefaultBlend.Style
       value: 0
