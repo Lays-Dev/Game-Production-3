@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sand_01_m
+  m_Name: QuestPaper_Violin
   m_Shader: {fileID: -6465566751694194690, guid: b99265c667661434cb1909c9f54c2403, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: 62604b1a72b64b14984d44947598601c, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef95960b147810c4584e3c0f0e8d6867, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -118,8 +118,8 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Toon_Ramp_Offset: 0.62
-    - _Toon_Ramp_Smoothness: 0.1
+    - _Toon_Ramp_Offset: 0.74
+    - _Toon_Ramp_Smoothness: 0.09
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -127,7 +127,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Toon_Ramp_Tinting: {r: 0.3679245, g: 0.25511748, b: 0.25511748, a: 0}
+    - _Toon_Ramp_Tinting: {r: 0.3764706, g: 0.3764706, b: 0.3764706, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8680826100150017952
