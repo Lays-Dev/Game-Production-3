@@ -94,8 +94,7 @@ public class QuestTest : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         hasBeenCollected = false;
-        if (itemsCollected == 3)
-            TreeWall.SetActive(false);
+                    
     }
 
     void Update()
@@ -107,19 +106,35 @@ public class QuestTest : MonoBehaviour
                 break;
             case 0:
                 if (itemsCollected == 3)
+                {
                     QuestText.text = "Go Speak To The Elder";
+                    TreeWall.SetActive(false);
+                }
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Enchanted Planks";
                 break;
             case 1:
                 if (itemsCollected == 3)
+                {
                     QuestText.text = "Find the Sphinx";
+                    GameObject Rockwall = GameObject.FindWithTag("RockWall");
+                    Rockwall.SetActive(false);
+                }
+
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Mystic Sands";
                 break;
             case 2:
+                if (itemsCollected == 4)
+                {
+                    QuestText.text = "Craft the Pink Phantom";
+                }
                 if (itemsCollected == 3)
+                {
                     QuestText.text = "Approach the Phantom Mammoth";
+                    GameObject GemWall = GameObject.FindWithTag("GemWall");
+                    GemWall.SetActive(false);
+                }
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Magical Rocks";
                 break;

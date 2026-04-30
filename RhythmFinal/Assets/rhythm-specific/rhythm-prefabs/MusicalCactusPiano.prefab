@@ -281,7 +281,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collect!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -734,7 +734,7 @@ MonoBehaviour:
   amount: 1
   MusicGamePrefab: {fileID: 3935475340603992137, guid: a83e44bbfd819874981bde174008e3c9, type: 3}
   worldUI: {fileID: 6983205619651282514}
-  ID: 1
+  ID: 3
   spawner: {fileID: 0}
   minigameCamera: {fileID: 1513847648755823888}
   fadeIn: {fileID: 0}

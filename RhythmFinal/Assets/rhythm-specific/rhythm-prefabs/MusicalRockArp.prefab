@@ -719,7 +719,7 @@ MonoBehaviour:
   amount: 1
   MusicGamePrefab: {fileID: 7167433767713627950, guid: be286badb2f248e4f8b1529341358f84, type: 3}
   worldUI: {fileID: 4769082619252532231}
-  ID: 3
+  ID: 1
   spawner: {fileID: 0}
   minigameCamera: {fileID: 849161406768228028}
   fadeIn: {fileID: 0}
