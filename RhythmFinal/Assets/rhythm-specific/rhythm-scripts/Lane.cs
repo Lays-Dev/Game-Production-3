@@ -162,7 +162,7 @@ public class Lane : MonoBehaviour
 
 
     //This checks if the song is over and then deactivates the rhythm game and reactivates the player. I will be changing this to a results screen later on.
-    private System.Collections.IEnumerator EndSong()
+    /*private System.Collections.IEnumerator EndSong()
     {
         
         yield return new WaitForSeconds(1f); // Wait for a short delay to avoid the very beginning of the song triggering the end condition
@@ -225,6 +225,28 @@ public class Lane : MonoBehaviour
             StartCoroutine(healthTracking.GetComponent<HealthTracking>().RefillHealth());
             Destroy(RhythmGame);
         }
+    }*/
+
+    public IEnumerator EndSong()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => spawnIndex == timeStamps.Count);
+        yield return new WaitForSeconds(6f);
+
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            Player p = player.GetComponent<Player>();
+
+            p.inRhythmGame = false;
+            p.controlLock = false;
+        }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Destroy(gameObject); // destroys whole rhythm minigame prefab
     }
     private void Hit()
     {
