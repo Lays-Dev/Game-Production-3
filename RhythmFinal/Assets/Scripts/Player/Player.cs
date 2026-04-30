@@ -28,12 +28,11 @@ public class Player : MonoBehaviour
     [Header("QuestBoard")]
     public QuestBoard currentQuestBoard;
 
-    [Header("Dash")]
-    public float dashSpeed = 15f;
-    public float dashCooldown = 1f;
-    public float dashDuration = 0.2f;
-    public bool canDash = true;
-    public bool isDashing = false;
+    [Header("Run")]
+    public float RunSpeed = 10f;
+    public bool isRunning = false;
+    private float currentSpeed;
+
 
     [Header("HitNote")]
     public bool hitNotePressed = false;
@@ -107,7 +106,7 @@ public class Player : MonoBehaviour
 
         if (skyBoxChanger != null && skyBoxChangerInRange)
         {
-            skyBoxChanger.enableCamera();
+            skyBoxChanger.ChangeSkybox();
             return;
         }
 
@@ -131,15 +130,11 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnDash(InputValue inputValue)
+    private void OnDash(InputValue inputValue) //technically should be OnRun but I don't want to mess around with input names
     {
-        // triggers the coroutine
-        if (!inputValue.isPressed) return;
 
-        if (canDash && !isDashing) // if player isn't dashing but can dash, trigger coroutine
-        {
-            StartCoroutine(DashRoutine());
-        }
+        isRunning = inputValue.isPressed;
+
 
 
     }
@@ -155,29 +150,6 @@ public class Player : MonoBehaviour
         Instantiate(RhythmPrefab);
     }
 
-    IEnumerator DashRoutine()
-    {
-        canDash = false;
-        isDashing = true;
-
-        animator.SetBool("IsDashing", true);
-
-        Vector3 dashDirection = transform.forward; // makes the dash go where the player is facing
-
-        float startTime = Time.time;
-
-        while(Time.time < startTime + dashDuration)
-        {
-            rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        isDashing = false;
-        animator.SetBool("IsDashing", false);
-
-        yield return new WaitForSeconds(dashCooldown); // triggers cooldown
-        canDash = true;
-    }
 
     private void OnTriggerEnter(Collider other) // doesn't pick up item, that's onInteract that does that
     {
@@ -270,11 +242,10 @@ public class Player : MonoBehaviour
 
     }
 
-    void FixedUpdate ()
+    public void FixedUpdate ()
     {
         if (controlLock) return;
         
-        if (isDashing) return; // prevents issues with the dash
         
         // to make movement based on camera
         // grabs camera movements
@@ -288,7 +259,8 @@ public class Player : MonoBehaviour
         // Build movement direction relative to camera
         Vector3 movement = forward * movementInput.y + right * movementInput.x;
 
-        rb.MovePosition(rb.position + movement * Speed * Time.fixedDeltaTime);
+        float moveSpeed = isRunning ? RunSpeed : Speed;
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); // Smoothly transition to the target speed
 
         //makes character rotate to movement direction
         if (movement != Vector3.zero)
@@ -307,13 +279,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
         // animator settings
-        float speed = movementInput.magnitude; 
-        animator.SetFloat("Speed", speed);
+        float moveAmount = movementInput.magnitude;
 
+        bool isMoving = moveAmount > 0.1f;
 
+        animator.SetBool("IsRunning", isRunning && isMoving);
+        animator.SetFloat("Speed", isMoving ? 1f : 0f);
 
     }
 }
