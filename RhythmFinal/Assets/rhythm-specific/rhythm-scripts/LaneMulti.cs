@@ -45,10 +45,10 @@ public class LaneMulti : MonoBehaviour
     {
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
-        GameObject questTestPrefab = GameObject.FindWithTag("UI");
+        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
         questTestPrefab.GetComponent<Canvas>().enabled = false;
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        if (BackgroundMusic != null)
+      
             BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
         
         
