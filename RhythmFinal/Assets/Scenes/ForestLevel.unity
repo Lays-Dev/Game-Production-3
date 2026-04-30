@@ -43359,6 +43359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questItemsCollected: 0
   questCompleted: 0
+  activeQuest: -1
 --- !u!4 &1914819660
 Transform:
   m_ObjectHideFlags: 0
@@ -48383,6 +48384,8 @@ MonoBehaviour:
   QuestTitle: {fileID: 2810595789812399709}
   hasBeenCollected: 0
   TreeWall: {fileID: 2837542449723178224}
+  currentQuest: -1
+  questUI: {fileID: 0}
 --- !u!4 &2010059254241618192
 Transform:
   m_ObjectHideFlags: 0
