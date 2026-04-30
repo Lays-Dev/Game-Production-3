@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
     {
         questItemsCollected = 0;
         questCompleted = false;
+        ViolinCraft = false;
+        HarpCraft = false;
+        HornCraft = false;
+
         SaveGame();
         Debug.Log("Quest progress reset");
     }
