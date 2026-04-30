@@ -2,10 +2,17 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 // SceneM
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject firstButton;
+
+    void Start()
+    {
+        EventSystem.current.SetSelectedGameObject(firstButton);
+    }
 
     // PlayGame is for the button to start the game
     public void PlayGame()
