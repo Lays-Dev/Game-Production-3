@@ -1,5 +1,5 @@
-using Melanchall.DryWetMidi.Interaction;
 using System.Collections.Generic;
+using Melanchall.DryWetMidi.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -46,12 +46,10 @@ public class LaneMulti : MonoBehaviour
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
         GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
-        questTestPrefab.GetComponent<Canvas>().enabled = false;
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-      
-            BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
+        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
         
-        
+        questTestPrefab.GetComponent<Canvas>().enabled = false;
     }
 
     void Update()
@@ -78,23 +76,22 @@ public class LaneMulti : MonoBehaviour
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
         yield return new WaitForSeconds(6f);
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        if (BackgroundMusic != null)
-        
-        {
-            BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
-        }
+        BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
         GameObject Player = GameObject.FindWithTag("Player");
         Player.GetComponent<InspectObject>().enabled = true;
-        GameObject WinScreen = GameObject.FindWithTag("WinScreen");
-        WinScreen.GetComponent<ExitToMainMenu>().enabled = true;
-        WinScreen.GetComponent<Canvas>().enabled = true;
+        //GameObject WinScreen = GameObject.FindWithTag("WinScreen");
+        //WinScreen.GetComponent<ExitToMainMenu>().enabled = true;
+        //WinScreen.GetComponent<Canvas>().enabled = true; /
+        GameObject BossCamera = GameObject.FindWithTag("BossCamera");
+        BossCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        playerObject.GetComponent<Player>().inRhythmGame = false;
+        playerObject.GetComponent<Player>().controlLock = false;
         Destroy(RhythmGame);
 
         SceneManager.LoadScene("TutorialLevel");
-
     }
 
 }
