@@ -91,7 +91,7 @@ public class LaneMulti : MonoBehaviour
         playerObject.GetComponent<Player>().controlLock = false;
         Destroy(RhythmGame);
 
-        //SceneManager.LoadScene("TutorialLevel");
+        SceneManager.LoadScene("TutorialLevel");
     }
 
 }
