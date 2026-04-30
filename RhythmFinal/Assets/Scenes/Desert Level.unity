@@ -8079,6 +8079,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: 66e736e9ddff24243a8c977194854b39, type: 3}
+    - target: {fileID: 5769335547653313464, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
+      propertyPath: Violin
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: f4f72e96f5855334db8802f06edb254e, type: 3}
     - target: {fileID: 6093852259671756352, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: Speed
       value: 2
@@ -8249,7 +8253,7 @@ MonoBehaviour:
   raycastCapsule: {fileID: 696585651}
   inputAxisController: {fileID: 696585650}
   rayDistance: 5
-  Violin: {fileID: 0}
+  Violin: {fileID: 919132149155446097, guid: f4f72e96f5855334db8802f06edb254e, type: 3}
 --- !u!95 &696585656
 Animator:
   serializedVersion: 7
@@ -15289,6 +15293,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b7b9cf334daeac249b7758fc66358d1f, type: 3}
   m_PrefabInstance: {fileID: 1060106849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1082780675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4335780685193131531, guid: 815797042fe8f1c4fb5f4afcab7dcb03, type: 3}
+  m_PrefabInstance: {fileID: 1906179271}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1096914169
 Mesh:
@@ -24360,6 +24369,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1097289443}
+    - target: {fileID: 1375531366307846188, guid: 815797042fe8f1c4fb5f4afcab7dcb03, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 1082780675}
     - target: {fileID: 1375531366307846188, guid: 815797042fe8f1c4fb5f4afcab7dcb03, type: 3}
       propertyPath: fadeIn
       value: 
