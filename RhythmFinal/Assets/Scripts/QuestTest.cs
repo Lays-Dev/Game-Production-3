@@ -9,7 +9,10 @@ public class QuestTest : MonoBehaviour
     public GameObject Spawner;
     public TextMeshProUGUI QuestTitle;
     public bool hasBeenCollected;
-    public GameObject TreeWall;
+    public bool rockWallGone;
+    public bool gemWallGone;
+    public bool treeWallGone;
+
 
     public int currentQuest = -1; // -1 means no quest, 0 means first quest, 1 means second quest, etc.
     public GameObject questUI;
@@ -70,7 +73,13 @@ public class QuestTest : MonoBehaviour
         // Load quest progress
         itemsCollected = (int)GameManager.instance.questItemsCollected;
         if (GameManager.instance.questCompleted)
-            TreeWall.SetActive(false);
+        {
+            if(treeWallGone == true)
+            {
+                GameObject TreeWall = GameObject.FindWithTag("TreeWall");
+                TreeWall.SetActive(false);
+            }
+        }
 
         // Respawn minigames based on remaining items
         if (Spawner != null)
@@ -108,7 +117,17 @@ public class QuestTest : MonoBehaviour
                 if (itemsCollected == 3)
                 {
                     QuestText.text = "Go Speak To The Elder";
-                    TreeWall.SetActive(false);
+                    if (treeWallGone == false)
+                    {
+                        GameObject TreeWall = GameObject.FindWithTag("TreeWall");
+                        TreeWall.SetActive(false);
+                        GameManager.instance.ViolinCraft = true;
+                        GameManager.instance.HarpCraft = false;
+                        GameManager.instance.HornCraft = false;
+                        GameManager.instance.SaveGame();
+                        treeWallGone = true;
+                    }
+                    
                 }
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Enchanted Planks";
@@ -117,8 +136,16 @@ public class QuestTest : MonoBehaviour
                 if (itemsCollected == 3)
                 {
                     QuestText.text = "Find the Sphinx";
-                    GameObject Rockwall = GameObject.FindWithTag("RockWall");
-                    Rockwall.SetActive(false);
+                    if (rockWallGone == false)
+                    {
+                        GameObject Rockwall = GameObject.FindWithTag("Rockwall");
+                        Rockwall.SetActive(false);
+                        GameManager.instance.ViolinCraft = false;
+                        GameManager.instance.HarpCraft = true;
+                        GameManager.instance.HornCraft = false;
+                        GameManager.instance.SaveGame();
+                        rockWallGone = true;
+                    }
                 }
 
                 else
@@ -132,8 +159,16 @@ public class QuestTest : MonoBehaviour
                 if (itemsCollected == 3)
                 {
                     QuestText.text = "Approach the Phantom Mammoth";
-                    GameObject GemWall = GameObject.FindWithTag("GemWall");
-                    GemWall.SetActive(false);
+                    if (gemWallGone == false)
+                    {
+                        GameObject GemWall = GameObject.FindWithTag("GemWall");
+                        GemWall.SetActive(false);
+                        GameManager.instance.ViolinCraft = false;
+                        GameManager.instance.HarpCraft = false;
+                        GameManager.instance.HornCraft = true;
+                        GameManager.instance.SaveGame();
+                        gemWallGone = true;
+                    }   
                 }
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Magical Rocks";

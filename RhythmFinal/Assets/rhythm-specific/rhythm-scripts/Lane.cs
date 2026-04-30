@@ -201,7 +201,7 @@ public class Lane : MonoBehaviour
                     StartCoroutine(healthTracking.GetComponent<HealthTracking>().TakeDamage());
                     hasBeenHurt = true;
 
-                    // Find the specific item by LaneID and call gameFailed
+                    // Find the specific item by LaneID and call gameFailed 
                     GameObject[] songs = GameObject.FindGameObjectsWithTag("Song");
                     foreach (GameObject song in songs)
                     {
@@ -222,6 +222,7 @@ public class Lane : MonoBehaviour
             questTestPrefab.GetComponent<Canvas>().enabled = true;
             playerObject.inRhythmGame = false;
             playerObject.controlLock = false;
+            
             StartCoroutine(healthTracking.GetComponent<HealthTracking>().RefillHealth());
             Destroy(RhythmGame);
         }

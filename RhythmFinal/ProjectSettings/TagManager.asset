@@ -16,6 +16,10 @@ TagManager:
   - FadeInGuy
   - immortality
   - BossCamera
+  - Rockwall
+  - TreeWall
+  - GemWall
+  - GameManager
   layers:
   - Default
   - TransparentFX

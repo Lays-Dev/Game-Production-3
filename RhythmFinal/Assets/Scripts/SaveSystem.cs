@@ -15,6 +15,9 @@ public static class SaveSystem
         // Quest data
         data.questItemsCollected   = manager.questItemsCollected;
         data.questCompleted        = manager.questCompleted;
+        data.HarpCraft            = manager.HarpCraft;
+        data.ViolinCraft          = manager.ViolinCraft;
+        data.HornCraft            = manager.HornCraft;  
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);

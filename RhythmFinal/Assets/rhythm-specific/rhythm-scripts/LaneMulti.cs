@@ -119,7 +119,11 @@ public class LaneMulti : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle"); 
+        if (questTestPrefab != null)
+        {
+            questTestPrefab.GetComponent<QuestTest>().itemsCollected = 0;
+        }
         if (RhythmGame != null)
             Destroy(RhythmGame);
 

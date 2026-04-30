@@ -8051,7 +8051,9 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   QuestTitle: {fileID: 971776204}
   hasBeenCollected: 0
-  TreeWall: {fileID: 1403351227}
+  rockWallGone: 0
+  gemWallGone: 0
+  treeWallGone: 0
   currentQuest: -1
   questUI: {fileID: 0}
 --- !u!114 &335510779
@@ -10335,7 +10337,7 @@ Transform:
   m_GameObject: {fileID: 422728485}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -110.29582, y: 44.527786, z: -6.7291946}
+  m_LocalPosition: {x: -142.4, y: 44.527786, z: 82.3}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -50734,7 +50736,7 @@ GameObject:
   - component: {fileID: 1403351228}
   m_Layer: 0
   m_Name: CrystalWall
-  m_TagString: Untagged
+  m_TagString: GemWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

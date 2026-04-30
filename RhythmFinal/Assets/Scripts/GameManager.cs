@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     [Header("Quest - Song of the Caged Bird")]
     public float questItemsCollected;
     public bool questCompleted;
+    public bool ViolinCraft;
+    public bool HarpCraft;
+    public bool HornCraft;
 
     public int activeQuest = -1;
 
@@ -27,6 +30,18 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGame(this);
+        if(ViolinCraft == true)
+        {
+            Debug.Log("Violin Crafted");    
+        }
+        if(HarpCraft == true)
+            {
+                Debug.Log("Harp Crafted");    
+            }
+            if(HornCraft ==  true)
+            {
+                Debug.Log("Horn Crafted");
+        }
     }
 
     public void LoadGame()
@@ -37,6 +52,9 @@ public class GameManager : MonoBehaviour
         // Quest data
         questItemsCollected = data.questItemsCollected;
         questCompleted = data.questCompleted;
+        ViolinCraft = data.ViolinCraft;
+        HarpCraft = data.HarpCraft;
+        HornCraft = data.HornCraft;
 
         Debug.Log("Game Loaded Successfully");
     }

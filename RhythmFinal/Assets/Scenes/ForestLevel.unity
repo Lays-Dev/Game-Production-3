@@ -48359,7 +48359,9 @@ MonoBehaviour:
   Spawner: {fileID: 154665688}
   QuestTitle: {fileID: 2810595789812399709}
   hasBeenCollected: 0
-  TreeWall: {fileID: 2837542449723178224}
+  rockWallGone: 0
+  gemWallGone: 0
+  treeWallGone: 0
   currentQuest: -1
   questUI: {fileID: 0}
 --- !u!4 &2010059254241618192
@@ -49030,7 +49032,7 @@ GameObject:
   - component: {fileID: 4666275845577872078}
   m_Layer: 0
   m_Name: TreeWall
-  m_TagString: Untagged
+  m_TagString: TreeWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7792,7 +7792,9 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   QuestTitle: {fileID: 1971464562}
   hasBeenCollected: 0
-  TreeWall: {fileID: 957259871}
+  rockWallGone: 0
+  gemWallGone: 0
+  treeWallGone: 0
   currentQuest: -1
   questUI: {fileID: 0}
 --- !u!114 &616537117
@@ -8491,15 +8493,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.024976604
+      value: 0.02497663
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000021542874
+      value: 0.00000016047329
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000054013776
+      value: -0.0000000039303236
       objectReference: {fileID: 0}
     - target: {fileID: 8782790171606273338, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_Name
@@ -14906,7 +14908,7 @@ GameObject:
   - component: {fileID: 957259872}
   m_Layer: 0
   m_Name: RockWall
-  m_TagString: Untagged
+  m_TagString: Rockwall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22717,7 +22719,7 @@ Transform:
   m_GameObject: {fileID: 1800330193}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6671025, y: 0.23446597, z: 0.23446597, w: 0.6671025}
-  m_LocalPosition: {x: -81.49, y: 45.375, z: 119.270805}
+  m_LocalPosition: {x: -70.66, y: 45.375, z: 113.17}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
