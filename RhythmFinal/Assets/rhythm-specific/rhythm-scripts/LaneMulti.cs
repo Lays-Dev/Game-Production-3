@@ -45,10 +45,12 @@ public class LaneMulti : MonoBehaviour
         noteAmount = timeStamps.Count;
         StartCoroutine(EndSong());
         GameObject questTestPrefab = GameObject.FindWithTag("UI");
-        GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
-        
         questTestPrefab.GetComponent<Canvas>().enabled = false;
+        GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
+        if (BackgroundMusic != null)
+            BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
+        
+        
     }
 
     void Update()
@@ -75,7 +77,11 @@ public class LaneMulti : MonoBehaviour
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count); // wait until all notes have been spawned
         yield return new WaitForSeconds(6f);
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
+        if (BackgroundMusic != null)
+        
+        {
+            BackgroundMusic.GetComponent<AudioSource>().volume = 1f;
+        }
         GameObject Player = GameObject.FindWithTag("Player");
         Player.GetComponent<InspectObject>().enabled = true;
         GameObject WinScreen = GameObject.FindWithTag("WinScreen");
