@@ -26851,6 +26851,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1375531366307846188, guid: 54c1653a096a87b4aabe666d4a588f41, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 781469919}
     - target: {fileID: 1819779392663872926, guid: 54c1653a096a87b4aabe666d4a588f41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.950592
@@ -26900,6 +26904,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c1653a096a87b4aabe666d4a588f41, type: 3}
+--- !u!1 &781469919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8982433788520186990, guid: 54c1653a096a87b4aabe666d4a588f41, type: 3}
+  m_PrefabInstance: {fileID: 781469918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788571962
 GameObject:
   m_ObjectHideFlags: 0
@@ -58896,8 +58905,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You win!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -60523,8 +60532,8 @@ MonoBehaviour:
 
     "Song of A Caged Bird"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
