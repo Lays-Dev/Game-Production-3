@@ -463,7 +463,7 @@
                     "type": "Value",
                     "id": "f3da28b5-e9e1-4662-b5c4-ee5fb739e76f",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.2)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -673,6 +673,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d79baa9d-2e74-43b7-ab56-0abaeb0f6abe",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "faebb708-7ddf-4363-9e0b-56d176be521a",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -877,28 +888,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9d42b964-b545-42ab-a5c8-e5a0d4800f90",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1372edd0-9c0f-460f-b9fb-231bdb4d3d78",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

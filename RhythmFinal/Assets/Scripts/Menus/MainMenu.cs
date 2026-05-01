@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        EventSystem.current.SetSelectedGameObject(firstButton);
+       // EventSystem.current.SetSelectedGameObject(firstButton);
     }
 
     // PlayGame is for the button to start the game
