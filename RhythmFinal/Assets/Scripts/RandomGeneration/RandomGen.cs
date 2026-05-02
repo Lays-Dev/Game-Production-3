@@ -20,9 +20,10 @@ public class RandomGen : MonoBehaviour
     // How many items are still needed
     private int ItemsRemaining()
     {
-        if (GameManager.instance != null)
-            return 3 - (int)GameManager.instance.questItemsCollected;
-        return 3; // fallback if no GameManager
+        QuestInfo quest = GameManager.instance?.GetCurrentQuest();
+        if (quest != null)
+            return quest.totalItemsNeeded - quest.itemsCollected;
+        return 3; // fallback
     }
 
     // Refills the song pool if empty (prevents repeating until all used)

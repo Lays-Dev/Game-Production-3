@@ -179,7 +179,7 @@ public class Lane : MonoBehaviour
                 endText.text = "Item Collected!";
                 if (hasBeenCollected == false)
                 {
-                    StartCoroutine(questTestPrefab.GetComponent<QuestTest>().collectItem());
+                    StartCoroutine(questTestPrefab.GetComponent<QuestTest>().CollectItem());
                     hasBeenCollected = true;
                     
                     GameObject[] miniGames = GameObject.FindGameObjectsWithTag("Song");
