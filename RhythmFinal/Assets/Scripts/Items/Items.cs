@@ -19,6 +19,8 @@ public class Items : MonoBehaviour
     public GameObject TeleportSpot;
     public GameObject Item;
 
+    public bool useAnvilVisualSwap;
+
     public bool startsRhythmGame;
     
     public void PickUp(Inventory inventory)
@@ -34,6 +36,11 @@ public class Items : MonoBehaviour
 
         FadeIn.SetTrigger("FadeIn");
         StartCoroutine(RhythmStart());
+
+        if (useAnvilVisualSwap)
+        {
+            player.StartAnvilGame();
+        }
        
     }
     public IEnumerator RhythmStart()

@@ -16,8 +16,6 @@ public class LaneMulti : MonoBehaviour
     public List<double> timeStamps = new List<double>();
     
     public BossManager BossFight;
-    
-
 
 
 
@@ -111,6 +109,8 @@ public class LaneMulti : MonoBehaviour
         {
             player.GetComponent<Player>().inRhythmGame = false;
             player.GetComponent<Player>().controlLock = false;
+
+            player.GetComponent<Player>().EndAnvilGame();
         }
 
         GameObject bossCam = GameObject.FindWithTag("BossCamera");

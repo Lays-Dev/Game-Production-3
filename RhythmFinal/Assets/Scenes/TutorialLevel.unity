@@ -3013,6 +3013,87 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &399451416
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.2099872
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0643034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 66.161
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.03661686
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9993294
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 184.197
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_Name
+      value: BLACKSMITH_HAMMER
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a16ff2568405df24ebb7ec518fd87927, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
 --- !u!1 &441174162
 GameObject:
   m_ObjectHideFlags: 0
@@ -9045,6 +9126,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2137377254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1086005832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 25e03fd5feba2f946be4edb2227798ca, type: 3}
+  m_PrefabInstance: {fileID: 399451416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092830269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6193121965160548796, guid: 7c9cc8948acdcaa4bb4414cde29ba7d3, type: 3}
@@ -11743,7 +11829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161632629292419893, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: HorizontalAxis.Center
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5839670299350486840, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11810,9 +11896,17 @@ PrefabInstance:
       value: Player+Camera
       objectReference: {fileID: 0}
     - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
+      propertyPath: anvilRhythmModel
+      value: 
+      objectReference: {fileID: 1086005832}
+    - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: currentQuestBoard
       value: 
       objectReference: {fileID: 946891785}
+    - target: {fileID: 7758373492142791403, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
+      propertyPath: normalPlayerModel
+      value: 
+      objectReference: {fileID: 1364262122}
     - target: {fileID: 8406575800065476332, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
       propertyPath: DefaultBlend.Style
       value: 0
@@ -13316,6 +13410,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 82c98e61712d4d444805b7143d532ce9, type: 3}
   m_PrefabInstance: {fileID: 1361475845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1364262122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6329712503037211983, guid: 300f661eecc5fce4daaa754fb8c9ab46, type: 3}
+  m_PrefabInstance: {fileID: 1190225582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406349478
 PrefabInstance:
@@ -20934,6 +21033,10 @@ PrefabInstance:
       propertyPath: fadeIn
       value: 
       objectReference: {fileID: 1302431076}
+    - target: {fileID: 3084053026842835444, guid: b63113902a1f32840a2c35fc2bfe6a00, type: 3}
+      propertyPath: useAnvilVisualSwap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4384733246786810452, guid: b63113902a1f32840a2c35fc2bfe6a00, type: 3}
       propertyPath: m_Name
       value: Anvil
@@ -20985,3 +21088,4 @@ SceneRoots:
   - {fileID: 71609571}
   - {fileID: 327088418}
   - {fileID: 1570166363}
+  - {fileID: 399451416}

@@ -52,6 +52,10 @@ public class Player : MonoBehaviour
 
     [Header("UI/ MISC stuff")]
     public bool isinteractable = false; // this is for the UI, to make sure the "Press E to interact" only shows up when you can actually interact with something.
+
+    [Header("Anvil Rhythm Game")]
+    public GameObject normalPlayerModel;
+    public GameObject anvilRhythmModel;
     
     //public LockMouse mouseLock;
 
@@ -301,4 +305,34 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", isMoving ? 1f : 0f);
 
     }
+
+    #region AnvilStuff
+    public void StartAnvilGame() // only used for the anvil game in the hub
+    {
+        if (normalPlayerModel != null)
+        {
+            normalPlayerModel.SetActive(false);
+        }
+
+        if (anvilRhythmModel != null)
+        {
+            anvilRhythmModel.SetActive(true);
+        }
+    }
+
+    public void EndAnvilGame()
+    {
+        if (normalPlayerModel != null)
+        {
+            normalPlayerModel.SetActive(true);
+        }
+
+        if (anvilRhythmModel != null)
+        {
+            anvilRhythmModel.SetActive(false);
+        }
+    }
+
+
+    #endregion
 }
