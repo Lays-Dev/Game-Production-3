@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     public Items itemObject;
-
+    public bool canInteract = true;
         
 
     private void OnMove(InputValue inputValue) // function to make the guy move
@@ -77,7 +77,9 @@ public class Player : MonoBehaviour
     private void OnInteract(InputValue inputValue) // this is the thing that picks up items
     {
         // basic checks
-        if(!inputValue.isPressed) return;
+        // FIX - two separate guards
+        if (!inputValue.isPressed) return;  // ignore button release events
+        if (!canInteract) return;           // block interaction while moving
 
         if (itemsInRange.Count > 0)
         {
@@ -94,7 +96,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            if (item != null && item.startsRhythmGame)
+            if (item != null && item.startsRhythmGame && canInteract)
             {
                 StartRhythmGame();
             }
@@ -295,15 +297,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // animator settings
         float moveAmount = movementInput.magnitude;
+        bool isMoving = moveAmount > 0.01f;
 
-        bool isMoving = moveAmount > 0.1f;
+        // Block interaction while moving OR in rhythm game
+        canInteract = !isMoving && !inRhythmGame;
+
+        // Stop walk/run animation during rhythm game
+        if (inRhythmGame)
+        {
+            animator.SetBool("IsRunning", false);
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
 
         animator.SetBool("IsRunning", isRunning && isMoving);
         animator.SetFloat("Speed", isMoving ? 1f : 0f);
-
     }
 
     #region AnvilStuff
