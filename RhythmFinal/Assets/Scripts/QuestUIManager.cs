@@ -13,7 +13,7 @@ public class QuestUIManager : MonoBehaviour
 
         if (questTest.currentQuest != level)
         {
-            questTest.StartQuest(level);
+            questTest.StartQuest(GameManager.instance.activeQuest);
         }
     }
 }

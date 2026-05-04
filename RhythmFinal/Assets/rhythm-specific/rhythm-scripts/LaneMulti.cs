@@ -17,11 +17,6 @@ public class LaneMulti : MonoBehaviour
     
     public BossManager BossFight;
     
-
-
-
-
-
     public GameObject RhythmGame;
     public float noteAmount;
     
@@ -124,6 +119,27 @@ public class LaneMulti : MonoBehaviour
         {
             questTestPrefab.GetComponent<QuestTest>().itemsCollected = 0;
         }
+
+        switch (GameManager.instance.activeQuest)
+        {
+            case 0:
+                GameManager.instance.violinCraftReady = true;
+                GameManager.instance.SaveGame();
+                break;
+            case 1:
+                GameManager.instance.harpCraftReady = true;
+                GameManager.instance.SaveGame();
+                break;
+            case 2:
+                GameManager.instance.hornCraftReady = true;
+                GameManager.instance.SaveGame();
+                break;
+        }
+
+        GameManager.instance.questItemsCollected = 0;
+
+        GameManager.instance.SaveGame();
+
         if (RhythmGame != null)
             Destroy(RhythmGame);
 

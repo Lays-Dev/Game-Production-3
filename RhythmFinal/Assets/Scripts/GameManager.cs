@@ -10,8 +10,13 @@ public class GameManager : MonoBehaviour
     public bool ViolinCraft;
     public bool HarpCraft;
     public bool HornCraft;
+    public bool crafting;
+    public int activeQuest = 0;
+    public bool hornCraftReady;
+    public bool harpCraftReady;
+    public bool violinCraftReady;
 
-    public int activeQuest = -1;
+    public SkyBoxChanger skyBoxChanger;
 
     void Awake()
     {
@@ -29,19 +34,20 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        SaveSystem.SaveGame(this);
+        
         if(ViolinCraft == true)
         {
             Debug.Log("Violin Crafted");    
         }
         if(HarpCraft == true)
-            {
-                Debug.Log("Harp Crafted");    
-            }
-            if(HornCraft ==  true)
-            {
-                Debug.Log("Horn Crafted");
+        {
+            Debug.Log("Harp Crafted");    
         }
+        if(HornCraft ==  true)
+        {
+            Debug.Log("Horn Crafted");
+        }
+        SaveSystem.SaveGame(this);
     }
 
     public void LoadGame()
@@ -55,7 +61,11 @@ public class GameManager : MonoBehaviour
         ViolinCraft = data.ViolinCraft;
         HarpCraft = data.HarpCraft;
         HornCraft = data.HornCraft;
-
+        activeQuest = data.activeQuest;
+        crafting = data.crafting;
+        hornCraftReady = data.hornCraftReady;
+        harpCraftReady = data.harpCraftReady;
+        violinCraftReady = data.violinCraftReady;
         Debug.Log("Game Loaded Successfully");
     }
     public void ResetSave()
@@ -65,8 +75,14 @@ public class GameManager : MonoBehaviour
         ViolinCraft = false;
         HarpCraft = false;
         HornCraft = false;
+        crafting = false;
+        harpCraftReady = false;
+        hornCraftReady = false;
+        violinCraftReady = false;
 
         SaveGame();
         Debug.Log("Quest progress reset");
     }
+
+
 }

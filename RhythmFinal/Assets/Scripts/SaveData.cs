@@ -9,4 +9,9 @@ public class SaveData
     public bool ViolinCraft;
     public bool HarpCraft;
     public bool HornCraft;      
+    public bool crafting;
+    public int activeQuest;
+    public bool hornCraftReady;
+    public bool harpCraftReady;
+    public bool violinCraftReady;
 }

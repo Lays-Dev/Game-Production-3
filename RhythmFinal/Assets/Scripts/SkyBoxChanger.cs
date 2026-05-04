@@ -4,27 +4,49 @@ using UnityEngine.SceneManagement;
 public class SkyBoxChanger : MonoBehaviour
 {
     public Material[] skyboxes; // Array to hold different skybox materials
-    public int sceneIndex; // Index of the scene selected to go through
-    
+    public int currentLocalQuest; // Index of the current quest to determine which skybox to use
 
-    
-    public void ChangeSkybox() // changes skybox
+    public void Start()
     {
-        if (skyboxes.Length == 0 || skyboxes == null) return; // Check if there are any skyboxes in the array
+        currentLocalQuest = GameManager.instance.activeQuest; // Get the current active quest from the GameManager
+        SetSkybox(currentLocalQuest); // Set the skybox based on the current active quest
+    }
+    public void SetSkybox(int currentLocalQuest)
+    {
+        if (skyboxes == null || skyboxes.Length == 0) return;
 
-        sceneIndex++;
-        if (sceneIndex >= skyboxes.Length) // Loop back to the first skybox if we exceed the array length
-        {
-            sceneIndex = 0;
-        }
+        if (currentLocalQuest == 3)
+            currentLocalQuest = 0;
 
-        LevelState.Instance.selectedLevel = sceneIndex; // Set the selected level in the LevelState singleton to the scene index of this skybox changer
-        LevelState.Instance.levelSelected = true; // Set levelSelected to true to allow player to go through door
+        RenderSettings.skybox = skyboxes[currentLocalQuest];
+        Debug.Log("Skybox changed to: " + skyboxes[currentLocalQuest].name);
+        DynamicGI.UpdateEnvironment();
 
-        Debug.Log("Skybox changed to: " + skyboxes[sceneIndex].name); // Log the name of the new skybox
-        RenderSettings.skybox = skyboxes[sceneIndex]; // Set the new skybox based on the skybox of the chosen level
+ 
+        GameManager.instance.activeQuest = currentLocalQuest; // Update the active quest in the GameManager
+        LevelState.Instance.selectedLevel = currentLocalQuest;
+        LevelState.Instance.levelSelected = true;
 
-        DynamicGI.UpdateEnvironment(); // Update the environment to apply the new skybox
+        GameManager.instance.SaveGame();
+    }
+
+    public void ChangeSkybox()
+    {
+        if (skyboxes == null || skyboxes.Length == 0) return;
+
+        currentLocalQuest++;
+        if (currentLocalQuest == 3)
+            currentLocalQuest = 0;
+
+        LevelState.Instance.selectedLevel = currentLocalQuest;
+        LevelState.Instance.levelSelected = true;
+
+        RenderSettings.skybox = skyboxes[currentLocalQuest];
+        Debug.Log("Skybox changed to: " + skyboxes[currentLocalQuest].name);
+        DynamicGI.UpdateEnvironment();
+
+        GameManager.instance.activeQuest = currentLocalQuest; // Update the active quest in the GameManager
+        GameManager.instance.SaveGame();
     }
     
     /*
