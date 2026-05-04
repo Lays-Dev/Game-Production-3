@@ -21049,6 +21049,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Practice/Craft
       objectReference: {fileID: 0}
+    - target: {fileID: 8114997366994739972, guid: b63113902a1f32840a2c35fc2bfe6a00, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+    - target: {fileID: 8114997366994739972, guid: b63113902a1f32840a2c35fc2bfe6a00, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

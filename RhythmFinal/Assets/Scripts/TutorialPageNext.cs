@@ -1,17 +1,24 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class TutorialPageNext : MonoBehaviour
 {
     public GameObject currentPage;
     public GameObject nextPage;
+
+    public GameObject firstSelectedButton;
     void Start()
     {
-        Cursor.lockState=CursorLockMode.Locked;
-        Cursor.visible=false;
+        UnlockMouse();
+
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        
     }
     public void ClosePage()
     {
         currentPage.SetActive(false);
+        LockMouse();
         
     }
     public void NextPage()
@@ -23,5 +30,17 @@ public class TutorialPageNext : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
