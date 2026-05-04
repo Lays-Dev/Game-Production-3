@@ -108,19 +108,21 @@ public class QuestTest : MonoBehaviour
 
     void Update()
     {
-        switch (currentQuest)
+        switch (GameManager.instance.activeQuest)
         {
-            case -1:
-                QuestText.text = "";
-                break;
             case 0:
-                if (itemsCollected == 3)
+                if (GameManager.instance.violinCraftReady == true)
+                {
+                    QuestText.text = "Craft the violin";
+                }
+                else if (itemsCollected == 3)
                 {
                     QuestText.text = "Go Speak To The Elder";
                     if (treeWallGone == false)
                     {
                         GameObject TreeWall = GameObject.FindWithTag("TreeWall");
-                        TreeWall.SetActive(false);
+                        if (TreeWall != null)
+                            TreeWall.SetActive(false);
                         GameManager.instance.ViolinCraft = true;
                         GameManager.instance.HarpCraft = false;
                         GameManager.instance.HornCraft = false;
@@ -131,9 +133,14 @@ public class QuestTest : MonoBehaviour
                 }
                 else
                     QuestText.text = "Collect " + itemsCollected + "/3 Enchanted Planks";
+
                 break;
             case 1:
-                if (itemsCollected == 3)
+                if (GameManager.instance.harpCraftReady == true)
+                {
+                    QuestText.text = "Craft the harp";
+                }
+                else if (itemsCollected == 3)
                 {
                     QuestText.text = "Find the Sphinx";
                     if (rockWallGone == false)
@@ -152,11 +159,11 @@ public class QuestTest : MonoBehaviour
                     QuestText.text = "Collect " + itemsCollected + "/3 Mystic Sands";
                 break;
             case 2:
-                if (itemsCollected == 4)
+                if (GameManager.instance.hornCraftReady == true)
                 {
-                    QuestText.text = "Craft the Pink Phantom";
+                    QuestText.text = "Craft the horn";
                 }
-                if (itemsCollected == 3)
+                else if (itemsCollected == 3)
                 {
                     QuestText.text = "Approach the Phantom Mammoth";
                     if (gemWallGone == false)

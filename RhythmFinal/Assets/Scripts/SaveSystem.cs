@@ -18,6 +18,12 @@ public static class SaveSystem
         data.HarpCraft            = manager.HarpCraft;
         data.ViolinCraft          = manager.ViolinCraft;
         data.HornCraft            = manager.HornCraft;  
+        data.crafting             = manager.crafting;
+        data.hornCraftReady       = manager.hornCraftReady;
+        data.harpCraftReady       = manager.harpCraftReady;
+        data.violinCraftReady     = manager.violinCraftReady;
+        data.activeQuest          = manager.activeQuest;
+
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
