@@ -11,6 +11,8 @@ public class LaneMulti : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public InputAction RhythmButton;
     public GameObject notePrefab;
+    public bool isCraftGame;
+    public GameObject inspectUI;
     
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
@@ -126,10 +128,23 @@ public class LaneMulti : MonoBehaviour
         }
         if (RhythmGame != null)
             Destroy(RhythmGame);
+        if (isCraftGame)
+        {
+            InspectObject inspect = player.GetComponent<InspectObject>();
+            if (inspect != null)
+            {
+                inspect.enabled = true;
+                GameObject inspectUI = GameObject.FindWithTag("InspectUI");
+                if (inspectUI != null)
+                { inspectUI.SetActive(true); }
+            }
+        }
+        else
+        {
+            Debug.Log("Loading TutorialLevel");
 
-        Debug.Log("Loading TutorialLevel");
-
-        SceneManager.LoadScene("TutorialLevel");
+            SceneManager.LoadScene("TutorialLevel");
+        }
     }
 
 }

@@ -20,6 +20,7 @@ TagManager:
   - TreeWall
   - GemWall
   - GameManager
+  - InspectUI
   layers:
   - Default
   - TransparentFX

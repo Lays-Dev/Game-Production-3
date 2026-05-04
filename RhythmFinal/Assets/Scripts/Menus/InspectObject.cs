@@ -32,6 +32,10 @@ public class InspectObject : MonoBehaviour
     private Transform target;
 
     public GameObject Violin;
+    public GameObject Harp;
+    public GameObject Horn;
+    public GameObject Instrument;
+    public GameObject InspectUI;
 
     private Vector3 startPos;
     private Quaternion startRot;
@@ -46,11 +50,27 @@ public class InspectObject : MonoBehaviour
     //Get Cine Machine brain and active camera
     void Start()
     {
+        GameObject gameManager = GameObject.FindWithTag("GameManager");
+        if (gameManager.GetComponent<GameManager>().ViolinCraft)
+        {
+            Violin.SetActive(true);
+            Instrument = Violin;
+        }
+        if (gameManager.GetComponent<GameManager>().HarpCraft)
+        {
+            Harp.SetActive(true);
+            Instrument = Harp;
+        }
+        if (gameManager.GetComponent<GameManager>().HornCraft)
+        {
+            Horn.SetActive(true);
+            Instrument = Horn;
+        }
         brain = FindFirstObjectByType<CinemachineBrain>();
         activeCamera = brain.OutputCamera;
 
         player = GetComponent<Player>();
-        target = Violin.transform;
+        target = Instrument.transform;
 
         //Save original position, rotation, and scale of object
 
@@ -81,7 +101,13 @@ public class InspectObject : MonoBehaviour
             else
                 StopInspect();
         }
-
+        if (Gamepad.all.Count > 0 && Gamepad.current.buttonEast.wasPressedThisFrame)
+        {
+            if (!inspecting)
+                TryInspect();
+            else
+                StopInspect();
+        }
         if (!inspecting) return;
 
         MoveToCamera();
@@ -113,7 +139,7 @@ public class InspectObject : MonoBehaviour
     {
 
         //Target = inspected object
-
+        InspectUI.SetActive(false);
         target.position = startPos;
         target.rotation = startRot;
         target.localScale = startScale;

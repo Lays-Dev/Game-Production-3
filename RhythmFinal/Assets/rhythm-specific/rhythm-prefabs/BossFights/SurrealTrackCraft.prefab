@@ -872,6 +872,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
+  isCraftGame: 1
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}
@@ -1199,6 +1200,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
+  isCraftGame: 1
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}
@@ -1366,6 +1368,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
+  isCraftGame: 1
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}
