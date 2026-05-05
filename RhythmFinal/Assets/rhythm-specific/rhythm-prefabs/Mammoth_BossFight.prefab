@@ -96,10 +96,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Speak with Elder
+  m_text: Gather from Phantom Mammoth
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -505,6 +505,7 @@ MonoBehaviour:
   fadeIn: {fileID: 1436187817137633356, guid: ffc548e195a09f14ea5cb405e6bdf504, type: 3}
   TeleportSpot: {fileID: 590692738435178793}
   Item: {fileID: 0}
+  useAnvilVisualSwap: 0
   startsRhythmGame: 0
 --- !u!1001 &8100122096568072511
 PrefabInstance:

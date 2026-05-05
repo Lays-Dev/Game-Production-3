@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collect!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 65f090e35e9d89a4ebdb61f97f5ecd26, type: 2}
   m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_margin: {x: 96.23748, y: 22.593525, z: 96.27345, w: 22.850386}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4769082619252532231
@@ -646,6 +646,7 @@ MonoBehaviour:
   fadeIn: {fileID: 0}
   TeleportSpot: {fileID: 8639115002763269332}
   Item: {fileID: 3268289876399971651}
+  useAnvilVisualSwap: 0
   startsRhythmGame: 0
 --- !u!65 &8787147116532217433
 BoxCollider:
