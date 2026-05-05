@@ -34,15 +34,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "23dd5811-09f8-47f3-b255-19d9a81f5927",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Camera",
                     "type": "Value",
                     "id": "5ced0078-7f9b-42fd-b5bc-81f6f74067cc",
@@ -89,28 +80,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "b8e92c16-ad31-42b8-b89a-d9de5eba0913",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f3a332f3-4340-4a54-89cb-9e83661e5d47",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "d9131aaa-b3ab-4d04-96c3-11d8d3803334",
