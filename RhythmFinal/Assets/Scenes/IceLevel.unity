@@ -32987,7 +32987,12 @@ MonoBehaviour:
   ViolinCraft: 0
   HarpCraft: 0
   HornCraft: 0
+  crafting: 0
   activeQuest: -1
+  hornCraftReady: 0
+  harpCraftReady: 0
+  violinCraftReady: 0
+  skyBoxChanger: {fileID: 0}
 --- !u!4 &632887190
 Transform:
   m_ObjectHideFlags: 0
@@ -74630,7 +74635,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 7bb20c9798fd9b84282b4dbb0e01f22c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 959a271510a22244e80d08c6b85dd67a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -96231,9 +96236,9 @@ SceneRoots:
   - {fileID: 335510782}
   - {fileID: 788571963}
   - {fileID: 1441310935}
-  - {fileID: 438652146}
   - {fileID: 874409750}
   - {fileID: 450557340}
+  - {fileID: 438652146}
   - {fileID: 1267212281}
   - {fileID: 1246977232}
   - {fileID: 264502695}
