@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+// Added for desert level moving platform - Lays
+using UnityEngine.SceneManagement;
 
 public class Items : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class Items : MonoBehaviour
     public bool useAnvilVisualSwap;
 
     public bool startsRhythmGame;
+
+    [Header("Moving Platform Variables")]
+    public GameObject UIElderInstructions;
     
     public void PickUp(Inventory inventory)
     {
@@ -51,8 +56,14 @@ public class Items : MonoBehaviour
         player.transform.position = TeleportSpot.transform.position; // Teleport the player to the rhythm game area
         player.transform.LookAt(Item.transform.position); // Make the player look at the rhythm game
 
-        player.transform.Rotate(-75, 0f, 0f); // try +90 or -90
+        // Added for desert level moving platform - Lays
+        if (SceneManager.GetActiveScene().name == "Desert Level")   
+            {
+                player.transform.Rotate(-75, 0f, 0f); // try +90 or -90
+                Destroy(UIElderInstructions);
 
+            }
+      
         GameObject spawned = Instantiate(MusicGamePrefab, transform.position, Quaternion.identity); //This is what spawns our selected rhythm game
         Lane lane = spawned.GetComponentInChildren<Lane>();
         minigameCamera.gameObject.SetActive(true);

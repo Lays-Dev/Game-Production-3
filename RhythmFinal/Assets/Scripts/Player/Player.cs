@@ -140,12 +140,6 @@ public class Player : MonoBehaviour
             doorManager.EnterLevel();
             return;
         }
-
-// Added for moving platform
-        if (RisingPlatformTrigger != null)
-        {
-            RisingPlatformTrigger.TryMoveDown();
-        }
         
     }
 
