@@ -14,4 +14,8 @@ public class SaveData
     public bool hornCraftReady;
     public bool harpCraftReady;
     public bool violinCraftReady;
+    public bool ViolinCraftComplete;
+    public bool HarpCraftComplete;
+    public bool HornCraftComplete;
+    public bool tutorialCompleted;
 }

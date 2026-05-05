@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -543,7 +543,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -348.6, y: -80}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 666.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5207465754574258807
 CanvasRenderer:
@@ -575,8 +575,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -600,8 +600,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -873,6 +873,7 @@ MonoBehaviour:
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
   isCraftGame: 1
+  inspectUI: {fileID: 0}
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}
@@ -1071,8 +1072,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1201,6 +1202,7 @@ MonoBehaviour:
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
   isCraftGame: 1
+  inspectUI: {fileID: 0}
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}
@@ -1369,6 +1371,7 @@ MonoBehaviour:
     m_Flags: 0
   notePrefab: {fileID: 2880463731756719598, guid: d9a56d9317a1e174b9f5755da463cc3d, type: 3}
   isCraftGame: 1
+  inspectUI: {fileID: 0}
   timeStamps: []
   BossFight: {fileID: 7346263433840341812}
   RhythmGame: {fileID: 6366368526571951261}

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Speak with Elder
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
-  m_sharedMaterial: {fileID: 955905901533691336, guid: 8473dc764973fdb499b194cc3eaa7a75, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
+  m_sharedMaterial: {fileID: -7326486001444263197, guid: 89e621515f11ec44f9e856add42743e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_margin: {x: 86.99787, y: 22.593525, z: 88.308685, w: 22.850386}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3576701494221514919
@@ -432,6 +432,7 @@ MonoBehaviour:
   fadeIn: {fileID: 0}
   TeleportSpot: {fileID: 3794237189569692259}
   Item: {fileID: 919132149155446097, guid: a395e5d19aef0a6479e7df5d201e9750, type: 3}
+  useAnvilVisualSwap: 0
   startsRhythmGame: 0
 --- !u!1 &7930127128892623391
 GameObject:
