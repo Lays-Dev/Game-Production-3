@@ -641,10 +641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You, a magic luthier, must travel down a magical forest in order to craft
-    one of the most incredible violins in history, The Song Of The Caged Bird. You
-    must  gather the materials you need to convince The Great Elder to bestow it
-    upon you.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
