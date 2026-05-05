@@ -8489,19 +8489,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9996881
+      value: 0.999688
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.024976604
+      value: 0.024976596
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000021542874
+      value: 0.00000018614045
       objectReference: {fileID: 0}
     - target: {fileID: 7939948331410086803, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000054013776
+      value: -0.0000000051700644
       objectReference: {fileID: 0}
     - target: {fileID: 8782790171606273338, guid: 178d06c3ee60d5544bf73036411998e2, type: 3}
       propertyPath: m_Name
@@ -8586,6 +8586,10 @@ MonoBehaviour:
   inputAxisController: {fileID: 696585650}
   rayDistance: 5
   Violin: {fileID: 919132149155446097, guid: f4f72e96f5855334db8802f06edb254e, type: 3}
+  Harp: {fileID: 0}
+  Horn: {fileID: 0}
+  Instrument: {fileID: 0}
+  InspectUI: {fileID: 0}
 --- !u!95 &696585656
 Animator:
   serializedVersion: 7
@@ -9389,9 +9393,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 7bb20c9798fd9b84282b4dbb0e01f22c, type: 3}
+  m_Resource: {fileID: 8300000, guid: c33adae0c93767146b81f560bc71d5b6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.188
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16590,7 +16594,12 @@ MonoBehaviour:
   ViolinCraft: 0
   HarpCraft: 0
   HornCraft: 0
+  crafting: 0
   activeQuest: -1
+  hornCraftReady: 0
+  harpCraftReady: 0
+  violinCraftReady: 0
+  skyBoxChanger: {fileID: 0}
 --- !u!4 &1267162602
 Transform:
   m_ObjectHideFlags: 0
