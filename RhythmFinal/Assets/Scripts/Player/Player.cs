@@ -63,8 +63,12 @@ public class Player : MonoBehaviour
 
     public Items itemObject;
     public bool canInteract = true;
+
+    [Header("Moving Platform")]
+    public RisingPlatform RisingPlatformTrigger; // Reference to the RisingPlatform script
         
 
+/*
     private void OnMove(InputValue inputValue) // function to make the guy move
     {
         if (controlLock == false)
@@ -72,6 +76,21 @@ public class Player : MonoBehaviour
             movementInput = inputValue.Get<Vector2>();
         }
         Debug.Log("Making sure this works.");
+    }
+
+    */
+
+    // Lays edits for moving platform
+
+    private void OnMove(InputValue inputValue)
+    {
+        if (controlLock)
+        {
+            movementInput = Vector2.zero;
+            return;
+        }
+
+        movementInput = inputValue.Get<Vector2>();
     }
 
     private void OnInteract(InputValue inputValue) // this is the thing that picks up items
@@ -122,6 +141,11 @@ public class Player : MonoBehaviour
             return;
         }
 
+// Added for moving platform
+        if (RisingPlatformTrigger != null)
+        {
+            RisingPlatformTrigger.TryMoveDown();
+        }
         
     }
 
@@ -187,9 +211,9 @@ public class Player : MonoBehaviour
             doorManager = other.GetComponent<DoorManager>();
             doorInRange = true;
         }
-
         
     }
+
 
     private void OnTriggerExit(Collider other) // system to remove items from list of ones that can be picked up
     {
@@ -260,6 +284,7 @@ public class Player : MonoBehaviour
 
     }
 
+/*
     public void FixedUpdate ()
     {
         if (controlLock) return;
@@ -289,6 +314,31 @@ public class Player : MonoBehaviour
         
     }
 
+    */
+
+// Lays edit for moving platform
+    public void FixedUpdate ()
+    {
+        if (controlLock) return;
+
+        Vector3 forward = currentCameraTransform.forward;
+        Vector3 right = currentCameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        Vector3 movement = forward * movementInput.y + right * movementInput.x;
+
+        float moveSpeed = isRunning ? RunSpeed : Speed;
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        if (!controlLock && movement != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f);
+        }
+    }
+
     void LateUpdate()
     {
         hitNotePressed = false; // resets the hit note button every frame so it only registers once per press
@@ -306,8 +356,8 @@ public class Player : MonoBehaviour
         // Stop walk/run animation during rhythm game
         if (inRhythmGame)
         {
-            animator.SetBool("IsRunning", false);
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", isMoving ? 1f : 0f);
+            animator.SetBool("IsRunning", isRunning && isMoving);
             return;
         }
 
@@ -344,4 +394,5 @@ public class Player : MonoBehaviour
 
 
     #endregion
+
 }
