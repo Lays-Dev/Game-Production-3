@@ -43,27 +43,38 @@ public class InspectObject : MonoBehaviour
 
     private Vector2 rotationVelocity;
 
-    private bool inspecting;
+    public bool inspecting;
 
     private Player player;
 
     //Get Cine Machine brain and active camera
     void Start()
     {
+        InspectUI.SetActive(true);
         GameObject gameManager = GameObject.FindWithTag("GameManager");
+        GameObject questTest = GameObject.FindWithTag("UIQuestTitle");
         if (gameManager.GetComponent<GameManager>().ViolinCraft)
         {
             Violin.SetActive(true);
+            gameManager.GetComponent<GameManager>().ViolinCraftComplete = true;
+            questTest.GetComponent<QuestTest>().itemsCollected = 0;
+            GameManager.instance.SaveGame();
             Instrument = Violin;
         }
         if (gameManager.GetComponent<GameManager>().HarpCraft)
         {
             Harp.SetActive(true);
+            gameManager.GetComponent<GameManager>().HarpCraftComplete = true;
+            questTest.GetComponent<QuestTest>().itemsCollected = 0;
+            GameManager.instance.SaveGame();
             Instrument = Harp;
         }
         if (gameManager.GetComponent<GameManager>().HornCraft)
         {
             Horn.SetActive(true);
+            gameManager.GetComponent<GameManager>().HornCraftComplete = true;
+            questTest.GetComponent<QuestTest>().itemsCollected = 0;
+            GameManager.instance.SaveGame();
             Instrument = Horn;
         }
         brain = FindFirstObjectByType<CinemachineBrain>();
@@ -139,6 +150,8 @@ public class InspectObject : MonoBehaviour
     {
 
         //Target = inspected object
+        GameObject questTest = GameObject.FindWithTag("UIQuestTitle");
+        questTest.GetComponent<Canvas>().enabled = true;
         InspectUI.SetActive(false);
         target.position = startPos;
         target.rotation = startRot;

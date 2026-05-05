@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     public bool hornCraftReady;
     public bool harpCraftReady;
     public bool violinCraftReady;
+    public bool ViolinCraftComplete;
+    public bool HarpCraftComplete;
+    public bool HornCraftComplete;
+    public bool tutorialCompleted;
 
     public SkyBoxChanger skyBoxChanger;
 
@@ -66,6 +70,10 @@ public class GameManager : MonoBehaviour
         hornCraftReady = data.hornCraftReady;
         harpCraftReady = data.harpCraftReady;
         violinCraftReady = data.violinCraftReady;
+        ViolinCraftComplete = data.ViolinCraftComplete;
+        HarpCraftComplete = data.HarpCraftComplete;
+        HornCraftComplete = data.HornCraftComplete;
+        tutorialCompleted = data.tutorialCompleted;
         Debug.Log("Game Loaded Successfully");
     }
     public void ResetSave()
@@ -79,6 +87,10 @@ public class GameManager : MonoBehaviour
         harpCraftReady = false;
         hornCraftReady = false;
         violinCraftReady = false;
+        ViolinCraftComplete = false;    
+        HarpCraftComplete = false;
+        HornCraftComplete = false;
+
 
         SaveGame();
         Debug.Log("Quest progress reset");

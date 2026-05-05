@@ -48,7 +48,8 @@ public class LaneMulti : MonoBehaviour
         StartCoroutine(EndSong());
         GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle");
         GameObject BackgroundMusic = GameObject.FindWithTag("BackgroundMusic");
-        BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f;
+        if (BackgroundMusic != null)
+        { BackgroundMusic.GetComponent<AudioSource>().volume = 0.05f; }
         
         questTestPrefab.GetComponent<Canvas>().enabled = false;
     }
@@ -98,7 +99,7 @@ public class LaneMulti : MonoBehaviour
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => spawnIndex == timeStamps.Count);
         yield return new WaitForSeconds(6f);
-
+        
         Debug.Log("Song finished");
 
         GameObject bg = GameObject.FindWithTag("BackgroundMusic");
@@ -119,13 +120,8 @@ public class LaneMulti : MonoBehaviour
         if (bossCam != null)
             bossCam.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        GameObject questTestPrefab = GameObject.FindWithTag("UIQuestTitle"); 
-        if (questTestPrefab != null)
-        {
-            questTestPrefab.GetComponent<QuestTest>().itemsCollected = 0;
-        }
+        
+      
         if (RhythmGame != null)
             Destroy(RhythmGame);
         if (isCraftGame)
@@ -141,6 +137,19 @@ public class LaneMulti : MonoBehaviour
         }
         else
         {
+            
+            if (GameManager.instance.ViolinCraft)
+            {
+                GameManager.instance.violinCraftReady = true;
+            }
+            else if (GameManager.instance.HarpCraft)
+            {
+                GameManager.instance.harpCraftReady = true;
+            }
+            else if (GameManager.instance.HornCraft)
+            {
+                GameManager.instance.hornCraftReady = true;
+            }
             Debug.Log("Loading TutorialLevel");
 
             SceneManager.LoadScene("TutorialLevel");

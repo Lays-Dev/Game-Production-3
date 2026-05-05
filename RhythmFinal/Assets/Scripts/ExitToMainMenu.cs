@@ -15,11 +15,17 @@ public class ExitToMainMenu : MonoBehaviour
     {
         if (Gamepad.all.Count > 0 && Gamepad.current.selectButton.wasPressedThisFrame || Gamepad.all.Count > 0 && Gamepad.current.buttonEast.wasPressedThisFrame)
         {
+            GameObject gameManager = GameObject.FindWithTag("GameManager");
+            gameManager.GetComponent<GameManager>().ResetSave();
             pauseMenuScript.LoadMainMenu();
+            
         }
         if (Keyboard.current.enterKey.wasPressedThisFrame)
         {
-            pauseMenuScript.LoadMainMenu(); 
+            GameObject gameManager = GameObject.FindWithTag("GameManager");
+            gameManager.GetComponent<GameManager>().ResetSave();
+            pauseMenuScript.LoadMainMenu();
+            
         }
         
     }
